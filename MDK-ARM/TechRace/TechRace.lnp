@@ -36,10 +36,9 @@
 "techrace\system_stm32f1xx.o"
 "techrace\ks103.o"
 "techrace\motor.o"
-"techrace\moveprocess.o"
 "techrace\pid.o"
 "techrace\my_uart.o"
 --strict --scatter "TechRace\TechRace.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TechRace.map" -o TechRace\TechRace.axf

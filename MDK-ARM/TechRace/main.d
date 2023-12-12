@@ -7,14 +7,14 @@ techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 techrace\main.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 techrace\main.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h
 techrace\main.o: ../Drivers/CMSIS/Include/core_cm3.h
-techrace\main.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+techrace\main.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdint.h
 techrace\main.o: ../Drivers/CMSIS/Include/cmsis_version.h
 techrace\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 techrace\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 techrace\main.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-techrace\main.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
+techrace\main.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stddef.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
