@@ -1,4 +1,4 @@
-#include "i2c.h"
+#include "I2c.h"
 
 void delay_xus(__IO uint32_t nTime)
 {

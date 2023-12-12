@@ -1,6 +1,6 @@
 techrace\ks103.o: ..\User\KS103.c
 techrace\ks103.o: ..\User\KS103.h
-techrace\ks103.o: ../Core/Inc/i2c.h
+techrace\ks103.o: ../Core/Inc/I2c.h
 techrace\ks103.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 techrace\ks103.o: ../Core/Inc/stm32f1xx_hal_conf.h
 techrace\ks103.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h

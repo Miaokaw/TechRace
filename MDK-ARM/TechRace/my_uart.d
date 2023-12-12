@@ -45,4 +45,4 @@ techrace\my_uart.o: ..\User\my_uart.h
 techrace\my_uart.o: ../Core/Inc/usart.h
 techrace\my_uart.o: ../Core/Inc/gpio.h
 techrace\my_uart.o: ..\User\KS103.h
-techrace\my_uart.o: ../Core/Inc/i2c.h
+techrace\my_uart.o: ../Core/Inc/I2c.h

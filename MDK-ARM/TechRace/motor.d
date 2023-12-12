@@ -45,6 +45,6 @@ techrace\motor.o: ..\User\Motor.h
 techrace\motor.o: ../Core/Inc/usart.h
 techrace\motor.o: ../Core/Inc/gpio.h
 techrace\motor.o: ..\User\KS103.h
-techrace\motor.o: ../Core/Inc/i2c.h
+techrace\motor.o: ../Core/Inc/I2c.h
 techrace\motor.o: ../Core/Inc/tim.h
 techrace\motor.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\math.h
