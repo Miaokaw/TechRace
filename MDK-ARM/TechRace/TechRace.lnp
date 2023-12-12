@@ -1,5 +1,6 @@
 --cpu Cortex-M3
 "techrace\startup_stm32f103xe.o"
+"techrace\i2c.o"
 "techrace\main.o"
 "techrace\gpio.o"
 "techrace\adc.o"
@@ -10,7 +11,6 @@
 "techrace\usb.o"
 "techrace\stm32f1xx_it.o"
 "techrace\stm32f1xx_hal_msp.o"
-"techrace\i2c.o"
 "techrace\stm32f1xx_hal_gpio_ex.o"
 "techrace\stm32f1xx_hal_adc.o"
 "techrace\stm32f1xx_hal_adc_ex.o"
@@ -25,7 +25,6 @@
 "techrace\stm32f1xx_hal_flash_ex.o"
 "techrace\stm32f1xx_hal_exti.o"
 "techrace\stm32f1xx_hal_can.o"
-"techrace\stm32f1xx_hal_i2c.o"
 "techrace\stm32f1xx_hal_spi.o"
 "techrace\stm32f1xx_hal_tim.o"
 "techrace\stm32f1xx_hal_tim_ex.o"
@@ -38,7 +37,7 @@
 "techrace\motor.o"
 "techrace\pid.o"
 "techrace\my_uart.o"
---strict --scatter "TechRace\TechRace.sct"
+--library_type=microlib --strict --scatter "TechRace\TechRace.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TechRace.map" -o TechRace\TechRace.axf
