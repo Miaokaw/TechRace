@@ -36,6 +36,10 @@ techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+techrace\motor.o: ../Core/Inc/I2c.h
+techrace\motor.o: ../Core/Inc/main.h
+techrace\motor.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\motor.o: ../Core/Inc/../../User/codetab.h
 techrace\motor.o: ..\User\pid.h
 techrace\motor.o: ..\User\my_uart.h
 techrace\motor.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdio.h
@@ -44,6 +48,5 @@ techrace\motor.o: ..\User\Motor.h
 techrace\motor.o: ../Core/Inc/usart.h
 techrace\motor.o: ../Core/Inc/gpio.h
 techrace\motor.o: ..\User\KS103.h
-techrace\motor.o: ../Core/Inc/I2c.h
 techrace\motor.o: ../Core/Inc/tim.h
 techrace\motor.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\math.h

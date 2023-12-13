@@ -36,3 +36,7 @@ techrace\usb.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 techrace\usb.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 techrace\usb.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 techrace\usb.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+techrace\usb.o: ../Core/Inc/I2c.h
+techrace\usb.o: ../Core/Inc/main.h
+techrace\usb.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\usb.o: ../Core/Inc/../../User/codetab.h

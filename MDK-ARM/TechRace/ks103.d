@@ -37,3 +37,6 @@ techrace\ks103.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 techrace\ks103.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 techrace\ks103.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
 techrace\ks103.o: ../Core/Inc/main.h
+techrace\ks103.o: ../Core/Inc/I2c.h
+techrace\ks103.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\ks103.o: ../Core/Inc/../../User/codetab.h

@@ -37,9 +37,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
-I (../Core/Inc/main.h)(0x65785C0F)
-F (../Core/Src/main.c)(0x65789850)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\main.o --omf_browse techrace\main.crf --depend techrace\main.d)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
+F (../Core/Src/main.c)(0x6579F82A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\main.o --omf_browse techrace\main.crf --depend techrace\main.d)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -74,6 +76,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 I (../Core/Inc/adc.h)(0x65785C0F)
 I (../Core/Inc/can.h)(0x65785C0F)
 I (../Core/Inc/spi.h)(0x65785C0F)
@@ -83,7 +88,7 @@ I (../Core/Inc/usb.h)(0x65785C0F)
 I (../Core/Inc/gpio.h)(0x657896EA)
 F (../Core/Src/gpio.c)(0x65789AD2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\gpio.o --omf_browse techrace\gpio.crf --depend techrace\gpio.d)
 I (../Core/Inc/gpio.h)(0x657896EA)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -118,9 +123,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/adc.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\adc.o --omf_browse techrace\adc.crf --depend techrace\adc.d)
 I (../Core/Inc/adc.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -155,9 +163,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/can.c)(0x657896EB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\can.o --omf_browse techrace\can.crf --depend techrace\can.d)
 I (../Core/Inc/can.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -192,9 +203,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/spi.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\spi.o --omf_browse techrace\spi.crf --depend techrace\spi.d)
 I (../Core/Inc/spi.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -229,9 +243,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/tim.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\tim.o --omf_browse techrace\tim.crf --depend techrace\tim.d)
 I (../Core/Inc/tim.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -266,9 +283,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/usart.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\usart.o --omf_browse techrace\usart.crf --depend techrace\usart.d)
 I (../Core/Inc/usart.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -303,9 +323,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/usb.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\usb.o --omf_browse techrace\usb.crf --depend techrace\usb.d)
 I (../Core/Inc/usb.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -340,8 +363,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Core/Src/stm32f1xx_it.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\stm32f1xx_it.o --omf_browse techrace\stm32f1xx_it.crf --depend techrace\stm32f1xx_it.d)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -376,9 +402,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 I (../Core/Inc/stm32f1xx_it.h)(0x65785C0F)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\stm32f1xx_hal_msp.o --omf_browse techrace\stm32f1xx_hal_msp.crf --depend techrace\stm32f1xx_hal_msp.d)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -413,6 +442,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x64B13CF3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\stm32f1xx_hal_gpio_ex.o --omf_browse techrace\stm32f1xx_hal_gpio_ex.crf --depend techrace\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
@@ -1220,10 +1252,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (..\User\Motor.c)(0x657866E0)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\motor.o --omf_browse techrace\motor.crf --depend techrace\motor.d)
 I (..\User\Motor.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -1258,6 +1292,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 I (..\User\pid.h)(0x65785C0F)
 I (..\User\my_uart.h)(0x65785C0F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
@@ -1265,12 +1302,11 @@ I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x65785C0F)
 I (../Core/Inc/gpio.h)(0x657896EA)
 I (..\User\KS103.h)(0x657895FC)
-I (../Core/Inc/I2c.h)(0x65789549)
 I (../Core/Inc/tim.h)(0x65785C0F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\math.h)(0x5E8E3CC2)
 F (..\User\pid.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\pid.o --omf_browse techrace\pid.crf --depend techrace\pid.d)
 I (..\User\pid.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -1305,9 +1341,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 F (..\User\my_uart.c)(0x65785C0F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\my_uart.o --omf_browse techrace\my_uart.crf --depend techrace\my_uart.d)
 I (..\User\my_uart.h)(0x65785C0F)
-I (../Core/Inc/main.h)(0x65785C0F)
+I (../Core/Inc/main.h)(0x6579F777)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
@@ -1342,6 +1381,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/I2c.h)(0x65789549)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (../Core/Inc/../../User/codetab.h)(0x6579F745)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (..\User\Motor.h)(0x65785C0F)
@@ -1349,4 +1391,45 @@ I (..\User\pid.h)(0x65785C0F)
 I (../Core/Inc/usart.h)(0x65785C0F)
 I (../Core/Inc/gpio.h)(0x657896EA)
 I (..\User\KS103.h)(0x657895FC)
+F (..\User\OLED_I2C.c)(0x6579EE3E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\oled_i2c.o --omf_browse techrace\oled_i2c.crf --depend techrace\oled_i2c.d)
+I (..\User\OLED_I2C.h)(0x6579F32C)
 I (../Core/Inc/I2c.h)(0x65789549)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x657896EC)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x64B13CF3)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x64B13CF3)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x64B13CF3)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x64B13CE4)
+I (D:\keil5 stm32\core\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x64B13CE4)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x64B13CE4)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x64B13CE4)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x64B13CF3)
+I (D:\keil5 stm32\core\ARM\ARMCC\include\stddef.h)(0x5E8E3CC2)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x64B13CF3)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x64B13CF3)
+I (../Core/Inc/main.h)(0x6579F777)
+I (../Core/Inc/../../User/OLED_I2C.h)(0x6579F32C)
+I (..\User\codetab.h)(0x6579F745)
+F (..\User\codetab.c)(0x6579F6A9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\codetab.o --omf_browse techrace\codetab.crf --depend techrace\codetab.d)
+I (..\User\codetab.h)(0x6579F745)

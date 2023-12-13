@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ks103.h": "c",
+        "codetab.h": "c",
+        "i2c.h": "c"
+    }
+}
