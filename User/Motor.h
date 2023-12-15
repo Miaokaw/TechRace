@@ -1,12 +1,14 @@
 #ifndef __MOTOR_H__
 #define __MOTOR_H__
 
-#include "main.h"
+#include "tim.h"
+#include "math.h"
 #include "pid.h"
 #include "my_uart.h"
 #include "usart.h"
 #include "gpio.h"
 #include "KS103.h"
+#include "MPU6050.h"
 
 #define RELOADVALUE1 __HAL_TIM_GetAutoreload(&htim1) // 获取自动装载值
 #define RELOADVALUE2 __HAL_TIM_GetAutoreload(&htim2) // arr = 20000

@@ -27,7 +27,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-//你好前辈
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */

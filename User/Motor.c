@@ -1,6 +1,4 @@
 #include "Motor.h"
-#include "tim.h"
-#include "math.h"
 
 Pid YAW, DISTANCE;     // 偏航校正,距离控制pid结构体
 Motor motor[4];        // 电机结构体
@@ -19,6 +17,7 @@ int Vy;                   // 设定横移速度
 int Vz;                   // 设定旋转速度
 int V = 0;                // 设定距离控制速度
 int time;                 // 时间
+float pitch, roll, yaw;   // 角度
 float actYaw;             // 实际偏航角
 float actDistance;        // 实际距离
 float expectDistance;     // 估计行进距离
@@ -100,7 +99,7 @@ void Motor1_Send(void) // motor1 速度更新指令
 {
     float output = 0;
     PID_SingleCalc(&motor[0].pid, motor[0].targetSpeed, motor[0].speed, mode);
-    output = motor1.pid.output;
+    output = motor[0].pid.output;
     if (output > 0) // 对应正转
     {
         __HAL_TIM_SetCompare(&htim5, TIM_CHANNEL_1, (uint32_t)output);
@@ -211,7 +210,6 @@ void Velocity_Upgrade(void)
     // 过滤掉异常数值（超过电机速度最大值）
     for (int8_t i = 0; i < 4; i++)
     {
-        int a = 1;
         Speed_Low_Filter(&motor[i]);
     }
 
@@ -228,13 +226,13 @@ void Distance_Upgrade(void)
     PID_SingleCalc(&DISTANCE, targetDistance, expectDistance, mode);
     if (direction == X)
     {
-        expectDistance += (motor1.speed + motor2.speed + motor3.speed + motor4.speed) / 1273.2396f * 2.0f;
+        expectDistance += (motor[0].speed + motor[1].speed + motor[2].speed + motor[3].speed) / 1273.2396f * 2.0f;
         Vx = DISTANCE.output;
         Vy = 0;
     }
     else if (direction == Y)
     {
-        expectDistance += (-motor1.espeed + motor2.espeed + motor3.espeed - motor4.espeed) / 1273.2396f * 2.0f;
+        expectDistance += (-motor[0].espeed + motor[1].espeed + motor[2].espeed - motor[3].espeed) / 1273.2396f * 2.0f;
         Vy = DISTANCE.output;
         Vx = 0;
     }
@@ -246,9 +244,9 @@ void Distance_Upgrade(void)
 // 角度更新
 void Angle_Upgrade(void)
 {
-    PID_SingleCalc(&YAW, targetAngle, actyaw, mode);
+    PID_SingleCalc(&YAW, targetAngle, actYaw, mode);
     Vz = -YAW.output;
-    if (targetAngle - actyaw < 1 && targetAngle - actyaw > -1)
+    if (targetAngle - actYaw < 1 && targetAngle - actYaw > -1)
     {
         Move(STOP);
     }
@@ -278,11 +276,24 @@ void MotorSpeedCal(void)
     }
 }
 // 更新函数
-void Upgrade(void)
+void DataUpgrade(void)
 {
     Distance_Upgrade();
     Angle_Upgrade();
     Velocity_Upgrade();
+}
+// 整体偏航角计算函数
+void AngleCal(void)
+{
+    MPU6050_DMP_get_data(&pitch, &roll, &yaw);
+    // 消除 180 -180 之间跳变
+    // 并且使旋转方向受控制
+    if (actYaw - yaw - n * 360 > 180)
+        n++;
+    else if (actYaw - yaw - n * 360 < -180)
+        n--;
+
+    actYaw = yaw + n * 360;
 }
 // 中断回调函数
 // TIM6 仅用来每10ms触发一次中断
@@ -296,16 +307,4 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         DataUpgrade();   // 更新
         DataPrint();     // 数据输出
     }
-}
-// 整体偏航角计算函数
-void AngleCal(void)
-{
-    // 消除 180 -180 之间跳变
-    // 并且使旋转方向受控制
-    if (actyaw - JY901_data.yaw - n * 360 > 180)
-        n++;
-    else if (actyaw - JY901_data.yaw - n * 360 < -180)
-        n--;
-
-    actyaw = JY901_data.yaw + n * 360;
 }

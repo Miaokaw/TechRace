@@ -1,4 +1,4 @@
-#include "i2c.h"
+#include "I2c.h"
 
 void delay_xus(__IO uint32_t nTime)
 {
@@ -78,7 +78,6 @@ void I2C_Init(void)
 	SDA_Dout_HIGH();
 }
 
-
 void I2C_Start(void)
 {
 	SDA_Output();
@@ -89,7 +88,6 @@ void I2C_Start(void)
 	Delay_us(4);
 	SCL_Dout_LOW();
 }
-
 
 void I2C_Stop(void)
 {
@@ -119,11 +117,9 @@ uint8_t I2C_Wait_Ack(void)
 			return 1;
 		}
 	}
-	SCL_Dout_LOW(); // ʱ�����0
+	SCL_Dout_LOW();
 	return 0;
 }
-
-
 
 void I2C_Ack(void)
 {
@@ -135,8 +131,6 @@ void I2C_Ack(void)
 	Delay_us(2);
 	SCL_Dout_LOW();
 }
-
-
 
 void I2C_NAck(void)
 {
@@ -158,13 +152,13 @@ void I2C_Send_Byte(uint8_t txd)
 	{
 		SDA_Write((txd & 0x80) >> 7);
 		txd <<= 1;
-		Delay_us(5); // ��TEA5767��������ʱ���Ǳ����
+		Delay_us(5);
 		SCL_Dout_HIGH();
 		Delay_us(5);
 		SCL_Dout_LOW();
 	}
 }
-// ��1���ֽڣ�ack=1ʱ������ACK��ack=0������nACK
+
 uint8_t I2C_Read_Byte(uint8_t ack)
 {
 	unsigned char i, receive = 0;

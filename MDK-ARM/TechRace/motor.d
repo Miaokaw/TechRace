@@ -1,5 +1,6 @@
 techrace\motor.o: ..\User\Motor.c
 techrace\motor.o: ..\User\Motor.h
+techrace\motor.o: ../Core/Inc/tim.h
 techrace\motor.o: ../Core/Inc/main.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 techrace\motor.o: ../Core/Inc/stm32f1xx_hal_conf.h
@@ -28,7 +29,6 @@ techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
-techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
@@ -37,6 +37,15 @@ techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 techrace\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+techrace\motor.o: ../Core/Inc/I2c.h
+techrace\motor.o: ../Core/Inc/main.h
+techrace\motor.o: ../Core/Inc/../../User/MPU6050.h
+techrace\motor.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\math.h
+techrace\motor.o: ../Core/Inc/../../User/../DMP/inv_mpu.h
+techrace\motor.o: ../Core/Inc/../../User/../DMP/../User/MPU6050.h
+techrace\motor.o: ../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h
+techrace\motor.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\motor.o: ../Core/Inc/../../User/codetab.h
 techrace\motor.o: ..\User\pid.h
 techrace\motor.o: ..\User\my_uart.h
 techrace\motor.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
@@ -45,6 +54,3 @@ techrace\motor.o: ..\User\Motor.h
 techrace\motor.o: ../Core/Inc/usart.h
 techrace\motor.o: ../Core/Inc/gpio.h
 techrace\motor.o: ..\User\KS103.h
-techrace\motor.o: ../Core/Inc/i2c.h
-techrace\motor.o: ../Core/Inc/tim.h
-techrace\motor.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\math.h

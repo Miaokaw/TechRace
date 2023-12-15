@@ -13,7 +13,8 @@
                 "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\MDK-ARM",
                 "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Core\\Src",
                 "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Src",
-                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\User"
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\User",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\DMP"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

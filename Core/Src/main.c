@@ -20,7 +20,6 @@
 #include "main.h"
 #include "adc.h"
 #include "can.h"
-#include "i2c.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -70,15 +69,14 @@ void SystemClock_Config(void);
  */
 int main(void)
 {
-  int i_1 = 0
-      /* USER CODE BEGIN 1 */
+  /* USER CODE BEGIN 1 */
 
-      /* USER CODE END 1 */
+  /* USER CODE END 1 */
 
-      /* MCU Configuration--------------------------------------------------------*/
+  /* MCU Configuration--------------------------------------------------------*/
 
-      /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-      HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -111,6 +109,9 @@ int main(void)
   MX_USB_PCD_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  I2C_Init();
+  OLED_Init();
+  MPU6050_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,6 +121,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    OLED_Fill(0xFF); // È«ÆÁµãÁÁ
+    HAL_Delay(2000);
+    OLED_Fill(0x00); // È«ÆÁÃð
+    HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }

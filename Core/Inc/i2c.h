@@ -6,6 +6,7 @@
 #include "stdint.h"
 
 #define CPU_FREQUENCY_MHZ 72
+
 #define MYI2C_SCL_PIN GPIO_PIN_6
 #define MYI2C_SCL_PORT GPIOB
 #define MYI2C_SDA_PIN GPIO_PIN_7

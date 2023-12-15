@@ -28,7 +28,6 @@ techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
-techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
@@ -37,3 +36,12 @@ techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 techrace\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+techrace\gpio.o: ../Core/Inc/I2c.h
+techrace\gpio.o: ../Core/Inc/main.h
+techrace\gpio.o: ../Core/Inc/../../User/MPU6050.h
+techrace\gpio.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\math.h
+techrace\gpio.o: ../Core/Inc/../../User/../DMP/inv_mpu.h
+techrace\gpio.o: ../Core/Inc/../../User/../DMP/../User/MPU6050.h
+techrace\gpio.o: ../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h
+techrace\gpio.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\gpio.o: ../Core/Inc/../../User/codetab.h
