@@ -3,15 +3,17 @@
         {
             "name": "TechRace",
             "includePath": [
-                "d:\\keil5 stm32\\project\\TechRace\\Core\\Inc",
-                "d:\\keil5 stm32\\project\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
-                "d:\\keil5 stm32\\project\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
-                "d:\\keil5 stm32\\project\\TechRace\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "d:\\keil5 stm32\\project\\TechRace\\Drivers\\CMSIS\\Include",
-                "d:\\keil5 stm32\\project\\TechRace\\MDK-ARM",
-                "d:\\keil5 stm32\\project\\TechRace\\Core\\Src",
-                "d:\\keil5 stm32\\project\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Src",
-                "d:\\keil5 stm32\\project\\TechRace\\User"
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Core\\Inc",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\CMSIS\\Include",
+                "D:\\software\\MDK5\\ARM\\ARMCC\\include",
+                "D:\\software\\MDK5\\ARM\\ARMCC\\include\\rw",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\MDK-ARM",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Core\\Src",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\Drivers\\STM32F1xx_HAL_Driver\\Src",
+                "c:\\Users\\Miao_kaw\\Desktop\\TechRace\\User"
             ],
             "defines": [
                 "USE_HAL_DRIVER",
