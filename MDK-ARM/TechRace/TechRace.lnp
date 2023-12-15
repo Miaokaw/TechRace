@@ -39,7 +39,10 @@
 "techrace\my_uart.o"
 "techrace\oled_i2c.o"
 "techrace\codetab.o"
+"techrace\mpu6050.o"
+"techrace\inv_mpu.o"
+"techrace\inv_mpu_dmp_motion_driver.o"
 --library_type=microlib --strict --scatter "TechRace\TechRace.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TechRace.map" -o TechRace\TechRace.axf

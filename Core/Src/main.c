@@ -111,6 +111,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   I2C_Init();
   OLED_Init();
+  MPU6050_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */

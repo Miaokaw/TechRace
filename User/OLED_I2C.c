@@ -1,76 +1,76 @@
 /************************************************************************************
-*  Copyright (c), 2014, HelTec Automatic Technology co.,LTD.
-*            All rights reserved.
-*
-* Http:    www.heltec.cn
-* Email:   cn.heltec@gmail.com
-* WebShop: heltec.taobao.com
-*
-* File name: OLED_I2C.c
-* Project  : HelTec.uvprij
-* Processor: STM32F103C8T6
-* Compiler : MDK fo ARM
-* 
-* Author : –°ÔøΩÔøΩ
-* Version: 1.00
-* Date   : 2014.4.8
-* Email  : hello14blog@gmail.com
-* Modification: none
-* 
-* Description:128*64ÔøΩÔøΩÔøΩÔøΩÔøΩOLEDÔøΩÔøΩ æÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ⁄ªÔøΩÔøΩÔøΩÔøΩ‘∂ÔøΩÔøΩÔøΩ(heltec.taobao.com)ÔøΩÔøΩSD1306ÔøΩÔøΩÔøΩÔøΩIICÕ®ÔøΩ≈∑ÔøΩ ΩÔøΩÔøΩ æÔøΩÔøΩ
-*
-* Others: none;
-*
-* Function List:
-*	1. void I2C_Configuration(void) -- ÔøΩÔøΩÔøΩÔøΩCPUÔøΩÔøΩ”≤ÔøΩÔøΩI2C
-* 2. void I2C_WriteByte(uint8_t addr,uint8_t data) -- ÔøΩÔøΩƒ¥ÔøΩÔøΩÔøΩÔøΩÔøΩ÷∑–¥“ªÔøΩÔøΩbyteÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
-* 3. void WriteCmd(unsigned char I2C_Command) -- –¥ÔøΩÔøΩÔøΩÔøΩ
-* 4. void WriteDat(unsigned char I2C_Data) -- –¥ÔøΩÔøΩÔøΩÔøΩ
-* 5. void OLED_Init(void) -- OLEDÔøΩÔøΩÔøΩÔøΩ ºÔøΩÔøΩ
-* 6. void OLED_SetPos(unsigned char x, unsigned char y) -- ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
-* 7. void OLED_Fill(unsigned char fill_Data) -- »´ÔøΩÔøΩÔøΩÔøΩÔøΩ
-* 8. void OLED_CLS(void) -- ÔøΩÔøΩÔøΩÔøΩ
-* 9. void OLED_ON(void) -- ÔøΩÔøΩÔøΩÔøΩ
-* 10. void OLED_OFF(void) -- ÀØÔøΩÔøΩ
-* 11. void OLED_ShowStr(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize) -- ÔøΩÔøΩ æÔøΩ÷∑ÔøΩÔøΩÔøΩ(ÔøΩÔøΩÔøΩÔøΩÔøΩ–°ÔøΩÔøΩ6*8ÔøΩÔøΩ8*16ÔøΩÔøΩÔøΩÔøΩ)
-* 12. void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N) -- ÔøΩÔøΩ æÔøΩÔøΩÔøΩÔøΩ(ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ“™ÔøΩÔøΩ»°ƒ£ÔøΩÔøΩ»ªÔøΩÔøΩ≈µÔøΩcodetab.hÔøΩÔøΩ)
-* 13. void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]) -- BMPÕº∆¨
-*
-* History: none;
-*
-*************************************************************************************/
+ *  Copyright (c), 2014, HelTec Automatic Technology co.,LTD.
+ *            All rights reserved.
+ *
+ * Http:    www.heltec.cn
+ * Email:   cn.heltec@gmail.com
+ * WebShop: heltec.taobao.com
+ *
+ * File name: OLED_I2C.c
+ * Project  : HelTec.uvprij
+ * Processor: STM32F103C8T6
+ * Compiler : MDK fo ARM
+ *
+ * Author : ß≥Ñ1§7Ñ1§7
+ * Version: 1.00
+ * Date   : 2014.4.8
+ * Email  : hello14blog@gmail.com
+ * Modification: none
+ *
+ * Description:128*64Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7OLEDÑ1§7Ñ1§7Å0∂5Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0ë4Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å1í7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0È8Ñ1§7Ñ1§7Ñ1§7(heltec.taobao.com)Ñ1§7Ñ1§7SD1306Ñ1§7Ñ1§7Ñ1§7Ñ1§7IICÅ0«0Ñ1§7Å0ñ9Ñ1§7Å0∂4Ñ1§7Ñ1§7Å0∂5Ñ1§7Ñ1§7
+ *
+ * Others: none;
+ *
+ * Function List:
+ *	1. void I2C_Configuration(void) -- Ñ1§7Ñ1§7Ñ1§7Ñ1§7CPUÑ1§7Ñ1§7Å0„0Ñ1§7Ñ1§7I2C
+ * 2. void I2C_WriteByte(uint8_t addr,uint8_t data) -- Ñ1§7Ñ1§7Å0ê6Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0ˆ7ß’Å0›5Ñ1§7Ñ1§7byteÑ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 3. void WriteCmd(unsigned char I2C_Command) -- ß’Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 4. void WriteDat(unsigned char I2C_Data) -- ß’Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 5. void OLED_Init(void) -- OLEDÑ1§7Ñ1§7Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7
+ * 6. void OLED_SetPos(unsigned char x, unsigned char y) -- Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 7. void OLED_Fill(unsigned char fill_Data) -- Å0®0Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 8. void OLED_CLS(void) -- Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 9. void OLED_ON(void) -- Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+ * 10. void OLED_OFF(void) -- Å0∫9Ñ1§7Ñ1§7
+ * 11. void OLED_ShowStr(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize) -- Ñ1§7Ñ1§7Å0∂5Ñ1§7Å0ˆ7Ñ1§7Ñ1§7Ñ1§7(Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7ß≥Ñ1§7Ñ1§76*8Ñ1§7Ñ1§78*16Ñ1§7Ñ1§7Ñ1§7Ñ1§7)
+ * 12. void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N) -- Ñ1§7Ñ1§7Å0∂5Ñ1§7Ñ1§7Ñ1§7Ñ1§7(Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0€8Ñ1§7Ñ1§7Å0ß0Å0è0Ñ1§7Ñ1§7Å0©6Ñ1§7Ñ1§7Å0ñ7Ñ1§7codetab.hÑ1§7Ñ1§7)
+ * 13. void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]) -- BMPÅ0…0Å0ú2
+ *
+ * History: none;
+ *
+ *************************************************************************************/
 
 #include "OLED_I2C.h"
 
-void WriteCmd(unsigned char I2C_Command)//–¥ÔøΩÔøΩÔøΩÔøΩ
+void WriteCmd(unsigned char I2C_Command) // ß’Ñ1§7Ñ1§7Ñ1§7Ñ1§7
 {
 	I2C_Send_Byte(I2C_Command);
 }
 
-void WriteDat(unsigned char I2C_Data)//–¥ÔøΩÔøΩÔøΩÔøΩ
+void WriteDat(unsigned char I2C_Data) // ß’Ñ1§7Ñ1§7Ñ1§7Ñ1§7
 {
 	I2C_Send_Byte(I2C_Data);
 }
 
 void OLED_Init(void)
 {
-	HAL_Delay(100); //ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ±ÔøΩÔøΩÔøΩÔøΩ“™
-	
-	WriteCmd(0xAE); //display off
-	WriteCmd(0x20);	//Set Memory Addressing Mode	
-	WriteCmd(0x10);	//00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Page Addressing Mode (RESET);11,Invalid
-	WriteCmd(0xb0);	//Set Page Start Address for Page Addressing Mode,0-7
-	WriteCmd(0xc8);	//Set COM Output Scan Direction
+	HAL_Delay(100); // Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0µ2Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0€8
+
+	WriteCmd(0xAE); // display off
+	WriteCmd(0x20); // Set Memory Addressing Mode
+	WriteCmd(0x10); // 00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Page Addressing Mode (RESET);11,Invalid
+	WriteCmd(0xb0); // Set Page Start Address for Page Addressing Mode,0-7
+	WriteCmd(0xc8); // Set COM Output Scan Direction
 	WriteCmd(0x00); //---set low column address
 	WriteCmd(0x10); //---set high column address
 	WriteCmd(0x40); //--set start line address
 	WriteCmd(0x81); //--set contrast control register
-	WriteCmd(0xff); //ÔøΩÔøΩÔøΩ»µÔøΩÔøΩÔøΩ 0x00~0xff
+	WriteCmd(0xff); // Ñ1§7Ñ1§7Ñ1§7Å0©0Ñ1§7Ñ1§7Ñ1§7 0x00~0xff
 	WriteCmd(0xa1); //--set segment re-map 0 to 127
 	WriteCmd(0xa6); //--set normal display
 	WriteCmd(0xa8); //--set multiplex ratio(1 to 64)
 	WriteCmd(0x3F); //
-	WriteCmd(0xa4); //0xa4,Output follows RAM content;0xa5,Output ignores RAM content
+	WriteCmd(0xa4); // 0xa4,Output follows RAM content;0xa5,Output ignores RAM content
 	WriteCmd(0xd3); //-set display offset
 	WriteCmd(0x00); //-not offset
 	WriteCmd(0xd5); //--set display clock divide ratio/oscillator frequency
@@ -80,134 +80,136 @@ void OLED_Init(void)
 	WriteCmd(0xda); //--set com pins hardware configuration
 	WriteCmd(0x12);
 	WriteCmd(0xdb); //--set vcomh
-	WriteCmd(0x20); //0x20,0.77xVcc
+	WriteCmd(0x20); // 0x20,0.77xVcc
 	WriteCmd(0x8d); //--set DC-DC enable
 	WriteCmd(0x14); //
 	WriteCmd(0xaf); //--turn on oled panel
 }
 
-void OLED_SetPos(unsigned char x, unsigned char y) //ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
-{ 
-	WriteCmd(0xb0+y);
-	WriteCmd(((x&0xf0)>>4)|0x10);
-	WriteCmd((x&0x0f)|0x01);
+void OLED_SetPos(unsigned char x, unsigned char y) // Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+{
+	WriteCmd(0xb0 + y);
+	WriteCmd(((x & 0xf0) >> 4) | 0x10);
+	WriteCmd((x & 0x0f) | 0x01);
 }
 
-void OLED_Fill(unsigned char fill_Data)//»´ÔøΩÔøΩÔøΩÔøΩÔøΩ
+void OLED_Fill(unsigned char fill_Data) // Å0®0Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
 {
-	unsigned char m,n;
-	for(m=0;m<8;m++)
+	unsigned char m, n;
+	for (m = 0; m < 8; m++)
 	{
-		WriteCmd(0xb0+m);		//page0-page1
-		WriteCmd(0x00);		//low column start address
-		WriteCmd(0x10);		//high column start address
-		for(n=0;n<128;n++)
-			{
-				WriteDat(fill_Data);
-			}
+		WriteCmd(0xb0 + m); // page0-page1
+		WriteCmd(0x00);		// low column start address
+		WriteCmd(0x10);		// high column start address
+		for (n = 0; n < 128; n++)
+		{
+			WriteDat(fill_Data);
+		}
 	}
 }
 
-void OLED_CLS(void)//ÔøΩÔøΩÔøΩÔøΩ
+void OLED_CLS(void) // Ñ1§7Ñ1§7Ñ1§7Ñ1§7
 {
 	OLED_Fill(0x00);
 }
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_ON(void)
-// Calls          : 
+// Calls          :
 // Parameters     : none
-// Description    : ÔøΩÔøΩOLEDÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ–ªÔøΩÔøΩÔøΩ
+// Description    : Ñ1§7Ñ1§7OLEDÑ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7ß›Ñ1§7Ñ1§7Ñ1§7
 //--------------------------------------------------------------
 void OLED_ON(void)
 {
-	WriteCmd(0X8D);  //ÔøΩÔøΩÔøΩ√µÔøΩ…±ÔøΩ
-	WriteCmd(0X14);  //ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ…±ÔøΩ
-	WriteCmd(0XAF);  //OLEDÔøΩÔøΩÔøΩÔøΩ
+	WriteCmd(0X8D); // Ñ1§7Ñ1§7Ñ1§7Å0ã1Ñ1§7Å0Æ8Ñ1§7
+	WriteCmd(0X14); // Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0Æ8Ñ1§7
+	WriteCmd(0XAF); // OLEDÑ1§7Ñ1§7Ñ1§7Ñ1§7
 }
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_OFF(void)
-// Calls          : 
+// Calls          :
 // Parameters     : none
-// Description    : ÔøΩÔøΩOLEDÔøΩÔøΩÔøΩÔøΩ -- ÔøΩÔøΩÔøΩÔøΩƒ£ ΩÔøΩÔøΩ,OLEDÔøΩÔøΩÔøΩƒ≤ÔøΩÔøΩÔøΩ10uA
+// Description    : Ñ1§7Ñ1§7OLEDÑ1§7Ñ1§7Ñ1§7Ñ1§7 -- Ñ1§7Ñ1§7Ñ1§7Ñ1§7Å0è0Å0∂4Ñ1§7Ñ1§7,OLEDÑ1§7Ñ1§7Ñ1§7Å0ê4Ñ1§7Ñ1§7Ñ1§710uA
 //--------------------------------------------------------------
 void OLED_OFF(void)
 {
-	WriteCmd(0X8D);  //ÔøΩÔøΩÔøΩ√µÔøΩ…±ÔøΩ
-	WriteCmd(0X10);  //ÔøΩÿ±’µÔøΩ…±ÔøΩ
-	WriteCmd(0XAE);  //OLEDÔøΩÔøΩÔøΩÔøΩ
+	WriteCmd(0X8D); // Ñ1§7Ñ1§7Ñ1§7Å0ã1Ñ1§7Å0Æ8Ñ1§7
+	WriteCmd(0X10); // Ñ1§7Å1Ñ9Å01Ñ1§7Å0Æ8Ñ1§7
+	WriteCmd(0XAE); // OLEDÑ1§7Ñ1§7Ñ1§7Ñ1§7
 }
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_ShowChar(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize)
-// Calls          : 
-// Parameters     : x,y -- ÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ(x:0~127, y:0~7); ch[] -- “™ÔøΩÔøΩ æÔøΩÔøΩÔøΩ÷∑ÔøΩÔøΩÔøΩ; TextSize -- ÔøΩ÷∑ÔøΩÔøΩÔøΩ–°(1:6*8 ; 2:8*16)
-// Description    : ÔøΩÔøΩ æcodetab.hÔøΩ–µÔøΩASCIIÔøΩ÷∑ÔøΩ,ÔøΩÔøΩ6*8ÔøΩÔøΩ8*16ÔøΩÔøΩ—°ÔøΩÔøΩ
+// Calls          :
+// Parameters     : x,y -- Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7(x:0~127, y:0~7); ch[] -- Å0€8Ñ1§7Ñ1§7Å0∂5Ñ1§7Ñ1§7Ñ1§7Å0ˆ7Ñ1§7Ñ1§7Ñ1§7; TextSize -- Ñ1§7Å0ˆ7Ñ1§7Ñ1§7Ñ1§7ß≥(1:6*8 ; 2:8*16)
+// Description    : Ñ1§7Ñ1§7Å0∂5codetab.hÑ1§7ß÷Ñ1§7ASCIIÑ1§7Å0ˆ7Ñ1§7,Ñ1§7Ñ1§76*8Ñ1§7Ñ1§78*16Ñ1§7Ñ1§7Å0‘5Ñ1§7Ñ1§7
 //--------------------------------------------------------------
 void OLED_ShowStr(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize)
 {
-	unsigned char c = 0,i = 0,j = 0;
-	switch(TextSize)
+	unsigned char c = 0, i = 0, j = 0;
+	switch (TextSize)
 	{
-		case 1:
+	case 1:
+	{
+		while (ch[j] != '\0')
 		{
-			while(ch[j] != '\0')
+			c = ch[j] - 32;
+			if (x > 126)
 			{
-				c = ch[j] - 32;
-				if(x > 126)
-				{
-					x = 0;
-					y++;
-				}
-				OLED_SetPos(x,y);
-				for(i=0;i<6;i++)
-					WriteDat(F6x8[c][i]);
-				x += 6;
-				j++;
+				x = 0;
+				y++;
 			}
-		}break;
-		case 2:
+			OLED_SetPos(x, y);
+			for (i = 0; i < 6; i++)
+				WriteDat(F6x8[c][i]);
+			x += 6;
+			j++;
+		}
+	}
+	break;
+	case 2:
+	{
+		while (ch[j] != '\0')
 		{
-			while(ch[j] != '\0')
+			c = ch[j] - 32;
+			if (x > 120)
 			{
-				c = ch[j] - 32;
-				if(x > 120)
-				{
-					x = 0;
-					y++;
-				}
-				OLED_SetPos(x,y);
-				for(i=0;i<8;i++)
-					WriteDat(F8X16[c*16+i]);
-				OLED_SetPos(x,y+1);
-				for(i=0;i<8;i++)
-					WriteDat(F8X16[c*16+i+8]);
-				x += 8;
-				j++;
+				x = 0;
+				y++;
 			}
-		}break;
+			OLED_SetPos(x, y);
+			for (i = 0; i < 8; i++)
+				WriteDat(F8X16[c * 16 + i]);
+			OLED_SetPos(x, y + 1);
+			for (i = 0; i < 8; i++)
+				WriteDat(F8X16[c * 16 + i + 8]);
+			x += 8;
+			j++;
+		}
+	}
+	break;
 	}
 }
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
-// Calls          : 
-// Parameters     : x,y -- ÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ(x:0~127, y:0~7); N:ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩcodetab.hÔøΩ–µÔøΩÔøΩÔøΩÔøΩÔøΩ
-// Description    : ÔøΩÔøΩ æcodetab.hÔøΩ–µƒ∫ÔøΩÔøΩÔøΩ,16*16ÔøΩÔøΩÔøΩÔøΩ
+// Calls          :
+// Parameters     : x,y -- Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7(x:0~127, y:0~7); N:Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7codetab.hÑ1§7ß÷Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7
+// Description    : Ñ1§7Ñ1§7Å0∂5codetab.hÑ1§7ß÷Å0ë2Ñ1§7Ñ1§7Ñ1§7,16*16Ñ1§7Ñ1§7Ñ1§7Ñ1§7
 //--------------------------------------------------------------
 void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
 {
-	unsigned char wm=0;
-	unsigned int  adder=32*N;
-	OLED_SetPos(x , y);
-	for(wm = 0;wm < 16;wm++)
+	unsigned char wm = 0;
+	unsigned int adder = 32 * N;
+	OLED_SetPos(x, y);
+	for (wm = 0; wm < 16; wm++)
 	{
 		WriteDat(F16x16[adder]);
 		adder += 1;
 	}
-	OLED_SetPos(x,y + 1);
-	for(wm = 0;wm < 16;wm++)
+	OLED_SetPos(x, y + 1);
+	for (wm = 0; wm < 16; wm++)
 	{
 		WriteDat(F16x16[adder]);
 		adder += 1;
@@ -216,23 +218,23 @@ void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]);
-// Calls          : 
-// Parameters     : x0,y0 -- ÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ(x0:0~127, y0:0~7); x1,y1 -- ÔøΩÔøΩÔøΩ‘ΩÔøΩÔøΩÔøΩ(ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ)ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ(x1:1~128,y1:1~8)
-// Description    : ÔøΩÔøΩ æBMPŒªÕº
+// Calls          :
+// Parameters     : x0,y0 -- Ñ1§7Ñ1§7Å0∂3Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7(x0:0~127, y0:0~7); x1,y1 -- Ñ1§7Ñ1§7Ñ1§7Å0Í5Ñ1§7Ñ1§7Ñ1§7(Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7)Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7Ñ1§7(x1:1~128,y1:1~8)
+// Description    : Ñ1§7Ñ1§7Å0∂5BMP¶ÀÅ0…0
 //--------------------------------------------------------------
-void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[])
+void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[])
 {
-	unsigned int j=0;
-	unsigned char x,y;
+	unsigned int j = 0;
+	unsigned char x, y;
 
-  if(y1%8==0)
-		y = y1/8;
-  else
-		y = y1/8 + 1;
-	for(y=y0;y<y1;y++)
+	if (y1 % 8 == 0)
+		y = y1 / 8;
+	else
+		y = y1 / 8 + 1;
+	for (y = y0; y < y1; y++)
 	{
-		OLED_SetPos(x0,y);
-    for(x=x0;x<x1;x++)
+		OLED_SetPos(x0, y);
+		for (x = x0; x < x1; x++)
 		{
 			WriteDat(BMP[j++]);
 		}

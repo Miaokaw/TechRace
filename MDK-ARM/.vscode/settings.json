@@ -2,6 +2,8 @@
     "files.associations": {
         "ks103.h": "c",
         "codetab.h": "c",
-        "i2c.h": "c"
+        "i2c.h": "c",
+        "my_uart.h": "c",
+        "inv_mpu_dmp_motion_driver.h": "c"
     }
 }

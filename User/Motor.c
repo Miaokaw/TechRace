@@ -1,6 +1,4 @@
 #include "Motor.h"
-#include "tim.h"
-#include "math.h"
 
 Pid YAW, DISTANCE;     // 偏航校正,距离控制pid结构体
 Motor motor[4];        // 电机结构体
@@ -19,6 +17,7 @@ int Vy;                   // 设定横移速度
 int Vz;                   // 设定旋转速度
 int V = 0;                // 设定距离控制速度
 int time;                 // 时间
+float pitch, roll, yaw;   // 角度
 float actYaw;             // 实际偏航角
 float actDistance;        // 实际距离
 float expectDistance;     // 估计行进距离
@@ -286,14 +285,15 @@ void DataUpgrade(void)
 // 整体偏航角计算函数
 void AngleCal(void)
 {
+    MPU6050_DMP_get_data(&pitch, &roll, &yaw);
     // 消除 180 -180 之间跳变
     // 并且使旋转方向受控制
-    if (actYaw - JY901_data.yaw - n * 360 > 180)
+    if (actYaw - yaw - n * 360 > 180)
         n++;
-    else if (actYaw - JY901_data.yaw - n * 360 < -180)
+    else if (actYaw - yaw - n * 360 < -180)
         n--;
 
-    actYaw = JY901_data.yaw + n * 360;
+    actYaw = yaw + n * 360;
 }
 // 中断回调函数
 // TIM6 仅用来每10ms触发一次中断
