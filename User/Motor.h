@@ -31,49 +31,35 @@
 #define M4BIN1(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, (GPIO_PinState)(state))  // 驱动板2BIN1(PG13)
 #define M4BIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, (GPIO_PinState)(state))  // 驱动板2BIN2(PG14)
 
-#define STOP 0, 0, 0, 0 // 停止
-
-#define X 1 // 直行
-#define Y 2 // 横移
-
-#define VorD_YAW &YAW, 5, 0.12, 0, 5, 100
-#define A_YAW &YAW, 8, 0, 0, 0, 160
+#define YAW_PID &YAW, 8, 0, 0, 0, 160
 #define VELOCITY_PID 2.7, 1.1, 0, 10000, 10000
-#define STOP_PID &YAW, 0, 0, 0, 0, 0
 
-#define L2 GPIOF, GPIO_PIN_11 // L2 PF11
-#define L1 GPIOD, GPIO_PIN_10 // L1 PD10
-#define M GPIOD, GPIO_PIN_9   // M  PD9
-#define R1 GPIOD, GPIO_PIN_8  // R1 PD8
-#define R2 GPIOE, GPIO_PIN_14 // R2 PE14
-#define S1 GPIOB, GPIO_PIN_5  // 光电1
-#define S2 GPIOB, GPIO_PIN_6  // 光电2
-#define S3 GPIOB, GPIO_PIN_7  // 光电3
-#define SMP GPIOD, GPIO_PIN_2 // 树莓派
+#define READ(PIN) HAL_GPIO_ReadPin(PIN) // 读取GPIO
 
-#define READ(PIN) HAL_GPIO_ReadPin(PIN)                                 // 读取GPIO
-#define SET_SMP HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET)     // 输出正
-#define RESET_SMP HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET) // 输出负
+typedef struct _Data
+{
+    float measuredValue, Value;
+    float minValue, maxValue;
+    float data[20]
+} Data;
 
 // 电机结构体
 typedef struct _Motor
 {
-    int32_t lastAngle;      // 上次计数结束时转过的角度
-    int32_t totalAngle;     // 总共转过的角度
-    int16_t loopNum;        // 电机计数过零计数
-    float speed, espeed;    // 电机输出轴速度
-    float targetSpeed;      // 添加设定的目标速度
-    float speed_Record[20]; // 速度记录
-    Pid pid;                // 添加电机对应PID
+    int32_t lastAngle;       // 上次计数结束时转过的角度
+    int32_t totalAngle;      // 总共转过的角度
+    int16_t loopNum;         // 电机计数过零计数
+    Data data;               // 添加电机数据结构
+    float targetSpeed;       // 添加设定的目标速度
+    float speed_Record[20];  // 速度记录
+    Pid pid;                 // 添加电机对应PID
+    TIM_HandleTypeDef *htim; // 添加电机对应tim
 } Motor;
 
-extern int8_t state, state1, state2, state3, smp;
 extern Motor motor[4];
-extern Pid YAW, DISTANCE;
-extern float distance, actyaw, targetAngle, actDistance, expectDistance, targetDistance, calDistance, value;
-extern uint8_t mode;
+extern Pid YAW;
+extern float actyaw, targetYaw;
 
 void Init(void);
-void Move(int x, int y, int z, uint8_t inputMode);
 
 #endif
