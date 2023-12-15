@@ -31,6 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdio.h"
 #include "I2c.h"
 #include "../../User/OLED_I2C.h"
 /* USER CODE END Includes */

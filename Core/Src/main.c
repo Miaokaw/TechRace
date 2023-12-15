@@ -18,7 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "can.h"
+#include "dma.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -69,9 +71,9 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  //  uint16_t ADC_Value1, i;
-//  uint16_t AD_Buf[1] = {0}; // 两个通道采集数据存在这个数组里面
-
+//  uint16_t ADC_Value1;
+  uint16_t AD_Buf[8] = {0}; // 两个通道采集数据存在这个数组里面
+	char * adcValue;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -92,6 +94,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
@@ -108,11 +111,12 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_PCD_Init();
   MX_TIM4_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   I2C_Init();
   OLED_Init();
-  // HAL_ADCEx_Calibration_Start(&hadc1);
-  // HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AD_Buf, 1); // �??启ADC的DMA，采集的数据直接放入 AD_Buf这个数组里，操作�??单�??
+  HAL_ADCEx_Calibration_Start(&hadc1);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AD_Buf, 8); // �???启ADC的DMA，采集的数据直接放入 AD_Buf这个数组里，操作�???单�??
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,10 +126,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		OLED_Fill(0xFF);//��??����?����
-    HAL_Delay(2000);
-		OLED_Fill(0x00);//��??��?e
-		HAL_GPIO_WritePin(BEEP_GPIO_Port,BEEP_Pin,GPIO_PIN_SET);
+
+    HAL_GPIO_TogglePin(BEEP_GPIO_Port, BEEP_Pin);
+		OLED_ShowStr(0,3,"HelTec Automation",1);//2a��?6*8��?��?
     HAL_Delay(2000);
   }
   /* USER CODE END 3 */
@@ -169,7 +172,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB;
+  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
   PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
