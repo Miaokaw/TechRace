@@ -1,9 +1,9 @@
 techrace\inv_mpu_dmp_motion_driver.o: ..\DMP\inv_mpu_dmp_motion_driver.c
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\string.h
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\math.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdio.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdint.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdlib.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\string.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\math.h
 techrace\inv_mpu_dmp_motion_driver.o: ..\DMP\inv_mpu.h
 techrace\inv_mpu_dmp_motion_driver.o: ..\DMP\../User/MPU6050.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Core/Inc/I2c.h
@@ -20,7 +20,7 @@ techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-techrace\inv_mpu_dmp_motion_driver.o: D:\software\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
+techrace\inv_mpu_dmp_motion_driver.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stddef.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 techrace\inv_mpu_dmp_motion_driver.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h

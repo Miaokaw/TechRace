@@ -73,7 +73,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
   //  uint16_t ADC_Value1;
   uint16_t AD_Buf[8] = {0}; // 两个通道采集数据存在这个数组里面
-  char *adcValue;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -116,7 +115,6 @@ int main(void)
   I2C_Init();
   MPU6050_Init();
   OLED_Init();
-  MPU6050_init();
   HAL_ADCEx_Calibration_Start(&hadc1);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AD_Buf, 8); // �???启ADC的DMA，采集的数据直接放入 AD_Buf这个数组里，操作�???单�??
 

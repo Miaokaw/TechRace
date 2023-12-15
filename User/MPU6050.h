@@ -12,7 +12,7 @@ uint8_t MPU6050_ReadReg(uint8_t RegAddress);
 uint8_t MPU6050_Write_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf);
 uint8_t MPU6050_Read_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf);
 
-uint8_t MPU6050_init(void);
+uint8_t MPU6050_Init(void);
 uint8_t MPU6050_DMP_get_data(float *pitch, float *roll, float *yaw);
 
 // 空函数防止报错

@@ -187,7 +187,7 @@ static inline unsigned short inv_orientation_matrix_to_scalar(const signed char 
     return scalar;
 }
 
-uint8_t MPU6050_init(void)
+uint8_t MPU6050_Init(void)
 {
     uint8_t res = 0;
     struct int_param_s int_param;  // 这个没什么用，就是为了能给他实参调用起来
