@@ -20,6 +20,7 @@
 #include "main.h"
 #include "adc.h"
 #include "can.h"
+#include "dma.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -70,7 +71,9 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  //  uint16_t ADC_Value1;
+  uint16_t AD_Buf[8] = {0}; // 两个通道采集数据存在这个数组里面
+  char *adcValue;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -91,13 +94,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM5_Init();
   MX_TIM6_Init();
   MX_TIM8_Init();
-  MX_ADC1_Init();
   MX_CAN_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
@@ -108,10 +111,15 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_PCD_Init();
   MX_TIM4_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   I2C_Init();
+  MPU6050_Init();
   OLED_Init();
   MPU6050_init();
+  HAL_ADCEx_Calibration_Start(&hadc1);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AD_Buf, 8); // �???启ADC的DMA，采集的数据直接放入 AD_Buf这个数组里，操作�???单�??
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,9 +129,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    OLED_Fill(0xFF); // È«ÆÁµãÁÁ
-    HAL_Delay(2000);
-    OLED_Fill(0x00); // È«ÆÁÃð
+
+    HAL_GPIO_TogglePin(BEEP_GPIO_Port, BEEP_Pin);
+    OLED_ShowStr(0, 3, "HelTec Automation", 1); // 2a��?6*8��?��?
     HAL_Delay(2000);
   }
   /* USER CODE END 3 */
