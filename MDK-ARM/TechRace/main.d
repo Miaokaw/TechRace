@@ -23,8 +23,6 @@ techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
-techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
-techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 techrace\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
@@ -39,7 +37,6 @@ techrace\main.o: ../Core/Inc/I2c.h
 techrace\main.o: ../Core/Inc/main.h
 techrace\main.o: ../Core/Inc/../../User/OLED_I2C.h
 techrace\main.o: ../Core/Inc/../../User/codetab.h
-techrace\main.o: ../Core/Inc/adc.h
 techrace\main.o: ../Core/Inc/can.h
 techrace\main.o: ../Core/Inc/spi.h
 techrace\main.o: ../Core/Inc/tim.h

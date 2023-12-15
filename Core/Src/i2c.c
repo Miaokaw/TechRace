@@ -37,7 +37,7 @@ void SDA_Output(void)
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
 	GPIO_InitStruct.Pin = MYI2C_SDA_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(MYI2C_SDA_PORT, &GPIO_InitStruct);
 }
