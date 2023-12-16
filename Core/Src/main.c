@@ -115,6 +115,7 @@ int main(void)
   I2C_Init();
   MPU6050_Init();
   OLED_Init();
+  Motor_Init();
   HAL_ADCEx_Calibration_Start(&hadc1);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AD_Buf, 8); // �???启ADC的DMA，采集的数据直接放入 AD_Buf这个数组里，操作�???单�??
 

@@ -4,6 +4,7 @@
         "codetab.h": "c",
         "i2c.h": "c",
         "my_uart.h": "c",
-        "inv_mpu_dmp_motion_driver.h": "c"
+        "inv_mpu_dmp_motion_driver.h": "c",
+        "main.h": "c"
     }
 }

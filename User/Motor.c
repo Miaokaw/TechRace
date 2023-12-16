@@ -9,7 +9,6 @@ float pitch, roll, yaw; // 角度
 float actYaw;           // 实际偏航角
 float targetYaw = 0;    // 角度目标值
 float p, i, d, imax;    // pid参数
-
 void DataPrint(void)
 {
     time++;
@@ -19,60 +18,17 @@ void DataPrint(void)
         time = 0;
     }
 }
-// 电机数值重置函数
-void MotorValue_Clear(Motor *motor)
-{
-    motor->loopNum = 0; // 溢出计数
-    for (int8_t i = 0; i < 20; i++)
-    {
-        motor->speed_Record[i] = 0;
-    }
-}
-// 电机使能
-void Motor1_Init(void)
-{
-    HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL); // 开启编码器定时器
-    HAL_TIM_Base_Start_IT(&htim6);                  // 开启10ms定时器中断
-    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);       // 开启PWM
-    __HAL_TIM_SET_COUNTER(&htim1, 10000);           // 编码器定时器初始值设定为10000
-    MotorValue_Clear(&motor[0]);                    // 电机数值重置
-}
-void Motor2_Init(void)
-{
-    HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL); // 开启编码器定时器
-    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_2);       // 开启PWM
-    __HAL_TIM_SET_COUNTER(&htim2, 10000);           // 编码器定时器初始值设定为10000
-    MotorValue_Clear(&motor[1]);                    // 电机数值重置
-}
-void Motor3_Init(void)
-{
-    HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL); // 开启编码器定时器
-    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);       // 开启PWM
-    __HAL_TIM_SET_COUNTER(&htim3, 10000);           // 编码器定时器初始值设定为10000
-    MotorValue_Clear(&motor[2]);                    // 电机数值重置
-}
-void Motor4_Init(void)
-{
-    HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL); // 开启编码器定时器
-    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);       // 开启PWM
-    __HAL_TIM_SET_COUNTER(&htim8, 10000);           // 编码器定时器初始值设定为10000
-    MotorValue_Clear(&motor[3]);                    // 电机数值重置
-}
-void set_PID(float kp, float ki, float kd, int maxi, int maxoutput)
+void PID_Init_Motor(float kp, float ki, float kd, int maxi, int maxoutput)
 {
     for (int8_t i = 0; i < 4; i++)
     {
         PID_Init(&motor[i].pid, kp, ki, kd, maxi, maxoutput);
     }
 }
-void Init(void)
+void Motor_Init(void)
 {
-    Motor1_Init();
-    Motor2_Init();
-    Motor3_Init();
-    Motor4_Init();
-    set_PID(0, 0, 0, 0, 0);
-    PID_Init(&DISTANCE, 4, 0, 0, 0, 200);
+    Motor_TIM_Init();
+    PID_Init_Motor(0, 0, 0, 0, 0);
     PID_Init(&YAW, 0, 0, 0, 0, 0);
     HAL_Delay(1000); // 等待传感器初始化完成
 }
@@ -80,7 +36,7 @@ void Init(void)
 void Motor1_Send(void) // motor1 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[0].pid, motor[0].targetSpeed, motor[0].speed);
+    PID_SingleCalc(&motor[0].pid, motor[0].targetSpeed, motor[0].speed.value);
     output = motor[0].pid.output;
     if (output > 0) // 对应正转
     {
@@ -98,7 +54,7 @@ void Motor1_Send(void) // motor1 速度更新指令
 void Motor2_Send(void) // motor2 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[1].pid, motor[1].targetSpeed, motor[1].speed);
+    PID_SingleCalc(&motor[1].pid, motor[1].targetSpeed, motor[1].speed.value);
     output = motor[1].pid.output;
     if (output > 0) // 对应正转
     {
@@ -116,7 +72,7 @@ void Motor2_Send(void) // motor2 速度更新指令
 void Motor3_Send(void) // motor3 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[2].pid, motor[2].targetSpeed, motor[2].speed);
+    PID_SingleCalc(&motor[2].pid, motor[2].targetSpeed, motor[2].speed.value);
     output = motor[2].pid.output;
     if (output > 0) // 对应正转
     {
@@ -134,7 +90,7 @@ void Motor3_Send(void) // motor3 速度更新指令
 void Motor4_Send(void) // motor4 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[3].pid, motor[3].targetSpeed, motor[3].speed);
+    PID_SingleCalc(&motor[3].pid, motor[3].targetSpeed, motor[3].speed.value);
     output = motor[3].pid.output;
     if (output > 0) // 对应正转
     {
@@ -159,9 +115,8 @@ void Velocity_Upgrade(void)
     // 过滤掉异常数值（超过电机速度最大值）
     for (int8_t i = 0; i < 4; i++)
     {
-        Speed_Low_Filter(&motor[i]);
+        Data_Filter(&motor[i].speed);
     }
-
     // 更新电机控制数值
     Motor1_Send();
     Motor2_Send();
@@ -192,16 +147,10 @@ void MotorSpeedCal(void)
         motor[i].totalAngle = pluse + motor[i].loopNum * RELOADVALUE[i] / 2;
         // 进行速度计算
         // motor.totalAngle - motor.lastAngle为当前10ms内的增量，即脉冲数
-        motor[i].espeed = motor[i].totalAngle / 0.3124f;
+        motor[i].speed.measuredValue = motor[i].totalAngle / 0.3124f;
         // 更新转过的圈数
         motor[i].lastAngle = motor[i].totalAngle;
     }
-}
-// 更新函数
-void DataUpgrade(void)
-{
-    Angle_Upgrade();
-    Velocity_Upgrade();
 }
 // 整体偏航角计算函数
 void AngleCal(void)
@@ -225,7 +174,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         // 程序流程
         AngleCal();      // 计算角度
         MotorSpeedCal(); // 获得编码器值，并且计算电机速度
-        DataUpgrade();   // 更新
-        DataPrint();     // 数据输出
+        Angle_Upgrade();
+        Velocity_Upgrade();
+        DataPrint(); // 数据输出
     }
 }

@@ -9,18 +9,18 @@ void PID_Init(Pid *pid, float p, float i, float d, float maxI, float maxOut)
     pid->maxOutput = maxOut; // pwm输出上限
 }
 
-float Data_Filter(float *data, float measuredValue, float minValue, float maxValue)
+float Data_Filter(Data *data)
 {
     float sum = 0.0f;
-    if (measuredValue > minValue && measuredValue < maxValue)
+    if (data->measuredValue > -data->limitedValue && data->measuredValue < data->limitedValue)
     {
         for (int i = 20 - 1; i > 0; i--) // 将现有数据后移一位
         {
-            data[i] = data[i - 1];
-            sum += data[i - 1];
+            data->data[i] = data->data[i - 1];
+            sum += data->data[i - 1];
         }
-        data[0] = measuredValue; // 第一位是新的数据
-        sum += measuredValue;
+        data->data[0] = data->measuredValue; // 第一位是新的数据
+        sum += data->measuredValue;
     }
     return sum / 20; // 返回均值
 }

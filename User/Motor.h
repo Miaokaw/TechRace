@@ -36,30 +36,22 @@
 
 #define READ(PIN) HAL_GPIO_ReadPin(PIN) // 读取GPIO
 
-typedef struct _Data
-{
-    float measuredValue, Value;
-    float minValue, maxValue;
-    float data[20]
-} Data;
-
 // 电机结构体
 typedef struct _Motor
 {
-    int32_t lastAngle;       // 上次计数结束时转过的角度
-    int32_t totalAngle;      // 总共转过的角度
-    int16_t loopNum;         // 电机计数过零计数
-    Data data;               // 添加电机数据结构
-    float targetSpeed;       // 添加设定的目标速度
-    float speed_Record[20];  // 速度记录
-    Pid pid;                 // 添加电机对应PID
-    TIM_HandleTypeDef *htim; // 添加电机对应tim
+    int32_t lastAngle;      // 上次计数结束时转过的角度
+    int32_t totalAngle;     // 总共转过的角度
+    int16_t loopNum;        // 电机计数过零计数
+    Data speed;             // 添加电机数据结构
+    float targetSpeed;      // 添加设定的目标速度
+    float speed_Record[20]; // 速度记录
+    Pid pid;                // 添加电机对应PID
 } Motor;
 
 extern Motor motor[4];
 extern Pid YAW;
 extern float actyaw, targetYaw;
 
-void Init(void);
+void Motor_Init(void);
 
 #endif
