@@ -1,40 +1,22 @@
 #include "Motor.h"
 
-Pid YAW, DISTANCE;     // 偏航校正,距离控制pid结构体
-Motor motor[4];        // 电机结构体
-uint8_t direction = X; // 设定方向
-int time;
-uint8_t t1 = 0;           // printf
-uint8_t t2 = 0;           // 超声波
-uint8_t mode = 1;         // 模式 1(速度) 2(距离) 3(角度) 4(绕轴旋转)
-uint8_t flag = 0;         // 角度模式 0 为速度模式 1 为pid控制
-uint8_t flag1 = 0;        // 距离模式 0 为速度模式 1 为pid控制
-int8_t t = 0;             // 延迟
-int8_t n = 0;             // 转圈数
-float value;              // 灰度数值和
-int Vx;                   // 设定直行速度
-int Vy;                   // 设定横移速度
-int Vz;                   // 设定旋转速度
-int V = 0;                // 设定距离控制速度
-int time;                 // 时间
-float pitch, roll, yaw;   // 角度
-float actYaw;             // 实际偏航角
-float actDistance;        // 实际距离
-float expectDistance;     // 估计行进距离
-float calDistance;        // 记录距离用于判断
-float targetAngle = 0;    // 角度目标值
-float targetDistance = 0; // 距离目标值
-float p, i, d, imax;      // pid参数
-float realdistance, distance;
-float group[10];
-uint8_t range1, range2;
+Pid YAW, DISTANCE;      // 偏航校正,距离控制pid结构体
+Motor motor[4];         // 电机结构体
+uint8_t time = 0;       // printf
+int Vx, Vy, Vz;         // 设定直行速度
+int turns = 0;          // 转圈次数
+float pitch, roll, yaw; // 角度
+float actYaw;           // 实际偏航角
+float targetYaw = 0;    // 角度目标值
+float p, i, d, imax;    // pid参数
+
 void DataPrint(void)
 {
     time++;
-    if (t % 5 == 0)
+    if (time % 5 == 0)
     {
         printf("1");
-        t1 = 0;
+        time = 0;
     }
 }
 // 电机数值重置函数
@@ -98,7 +80,7 @@ void Init(void)
 void Motor1_Send(void) // motor1 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[0].pid, motor[0].targetSpeed, motor[0].speed, mode);
+    PID_SingleCalc(&motor[0].pid, motor[0].targetSpeed, motor[0].speed);
     output = motor[0].pid.output;
     if (output > 0) // 对应正转
     {
@@ -116,7 +98,7 @@ void Motor1_Send(void) // motor1 速度更新指令
 void Motor2_Send(void) // motor2 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[1].pid, motor[1].targetSpeed, motor[1].speed, mode);
+    PID_SingleCalc(&motor[1].pid, motor[1].targetSpeed, motor[1].speed);
     output = motor[1].pid.output;
     if (output > 0) // 对应正转
     {
@@ -134,7 +116,7 @@ void Motor2_Send(void) // motor2 速度更新指令
 void Motor3_Send(void) // motor3 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[2].pid, motor[2].targetSpeed, motor[2].speed, mode);
+    PID_SingleCalc(&motor[2].pid, motor[2].targetSpeed, motor[2].speed);
     output = motor[2].pid.output;
     if (output > 0) // 对应正转
     {
@@ -152,7 +134,7 @@ void Motor3_Send(void) // motor3 速度更新指令
 void Motor4_Send(void) // motor4 速度更新指令
 {
     float output = 0;
-    PID_SingleCalc(&motor[3].pid, motor[3].targetSpeed, motor[3].speed, mode);
+    PID_SingleCalc(&motor[3].pid, motor[3].targetSpeed, motor[3].speed);
     output = motor[3].pid.output;
     if (output > 0) // 对应正转
     {
@@ -165,39 +147,6 @@ void Motor4_Send(void) // motor4 速度更新指令
         __HAL_TIM_SetCompare(&htim5, TIM_CHANNEL_4, (uint32_t)(-output));
         M4BIN1(GPIO_PIN_RESET);
         M4BIN2(GPIO_PIN_SET);
-    }
-}
-// 速度滤波
-int Speed_Low_Filter(Motor *motor)
-{
-    float sum = 0.0f;
-    if (motor->espeed > 280 || motor->espeed < -280)
-    {
-        return 0;
-    }
-    for (uint8_t i = 20 - 1; i > 0; i--) // 将现有数据后移一位
-    {
-        motor->speed_Record[i] = motor->speed_Record[i - 1];
-        sum += motor->speed_Record[i - 1];
-    }
-    motor->speed_Record[0] = motor->espeed; // 第一位是新的数据
-    sum += motor->espeed;
-    motor->speed = sum / 20; // 计算均值
-    return 0;
-}
-void distance_Filter(void)
-{
-    if (realdistance > 10 && realdistance < 5000)
-    {
-        float sum = 0.0f;
-        for (uint8_t i = 10 - 1; i > 0; i--) // 将现有数据后移一位
-        {
-            group[i] = group[i - 1];
-            sum += group[i - 1];
-        }
-        group[0] = realdistance; // 第一位是新的数据
-        sum += realdistance;
-        distance = sum / 10; // 计算均值
     }
 }
 // 速度更新
@@ -219,43 +168,16 @@ void Velocity_Upgrade(void)
     Motor3_Send();
     Motor4_Send();
 }
-// 距离更新
-void Distance_Upgrade(void)
-{
-    // 估计行进距离  += 电机编码器数值 * 2 * pi * r * 10ms / 1000(ms/s) / 60s * 2
-    PID_SingleCalc(&DISTANCE, targetDistance, expectDistance, mode);
-    if (direction == X)
-    {
-        expectDistance += (motor[0].speed + motor[1].speed + motor[2].speed + motor[3].speed) / 1273.2396f * 2.0f;
-        Vx = DISTANCE.output;
-        Vy = 0;
-    }
-    else if (direction == Y)
-    {
-        expectDistance += (-motor[0].espeed + motor[1].espeed + motor[2].espeed - motor[3].espeed) / 1273.2396f * 2.0f;
-        Vy = DISTANCE.output;
-        Vx = 0;
-    }
-    if (targetDistance - expectDistance < 1.0f && targetDistance - expectDistance > -1.0f)
-    {
-        Move(STOP);
-    }
-}
+
 // 角度更新
 void Angle_Upgrade(void)
 {
-    PID_SingleCalc(&YAW, targetAngle, actYaw, mode);
+    PID_SingleCalc(&YAW, targetYaw, actYaw);
     Vz = -YAW.output;
-    if (targetAngle - actYaw < 1 && targetAngle - actYaw > -1)
+    if (targetYaw - actYaw < 1 && targetYaw - actYaw > -1)
     {
-        Move(STOP);
+        Vz = 0;
     }
-}
-// 麦轮运动函数
-// 模式请看"Motor.h"宏定义
-// 当inputMode为 0 时更新
-void Move(int x, int y, int z, uint8_t inputMode)
-{
 }
 // 电机速度计算函数
 void MotorSpeedCal(void)
@@ -278,7 +200,6 @@ void MotorSpeedCal(void)
 // 更新函数
 void DataUpgrade(void)
 {
-    Distance_Upgrade();
     Angle_Upgrade();
     Velocity_Upgrade();
 }
@@ -288,12 +209,12 @@ void AngleCal(void)
     MPU6050_DMP_get_data(&pitch, &roll, &yaw);
     // 消除 180 -180 之间跳变
     // 并且使旋转方向受控制
-    if (actYaw - yaw - n * 360 > 180)
-        n++;
-    else if (actYaw - yaw - n * 360 < -180)
-        n--;
+    if (actYaw - yaw - turns * 360 > 180)
+        turns++;
+    else if (actYaw - yaw - turns * 360 < -180)
+        turns--;
 
-    actYaw = yaw + n * 360;
+    actYaw = yaw + turns * 360;
 }
 // 中断回调函数
 // TIM6 仅用来每10ms触发一次中断
