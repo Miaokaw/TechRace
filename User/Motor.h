@@ -50,7 +50,7 @@ typedef struct _Motor
 
 extern Motor motor[4];
 extern Pid YAW;
-extern float actyaw, targetYaw;
+extern float actYaw, targetYaw;
 
 void Motor_Init(void);
 

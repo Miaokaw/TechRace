@@ -1,14 +1,12 @@
 #include "Motor.h"
 
-Pid YAW, DISTANCE;      // 偏航校正,距离控制pid结构体
-Motor motor[4];         // 电机结构体
-uint8_t time = 0;       // printf
-int Vx, Vy, Vz;         // 设定直行速度
-int turns = 0;          // 转圈次数
-float pitch, roll, yaw; // 角度
-float actYaw;           // 实际偏航角
-float targetYaw = 0;    // 角度目标值
-float p, i, d, imax;    // pid参数
+Pid YAW;                     // 偏航校正pid结构体
+Motor motor[4];              // 电机结构体
+uint8_t time = 0;            // printf
+int Vx, Vy, Vz;              // 设定直行速度
+int turns = 0;               // 转圈次数
+float pitch, roll, yaw;      // 角度
+float actYaw, targetYaw = 0; // 角度目标值
 void DataPrint(void)
 {
     time++;

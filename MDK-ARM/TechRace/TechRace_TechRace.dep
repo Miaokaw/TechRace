@@ -1373,8 +1373,8 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x657D354C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x657C7F7A)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x657D354C)
 I (../Core/Inc/../../User/codetab.h)(0x657C7F7C)
-F (..\User\Motor.c)(0x657D43A6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-ID:\software\MDK5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\software\MDK5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\motor.o --omf_browse techrace\motor.crf --depend techrace\motor.d)
-I (..\User\Motor.h)(0x657D43E1)
+F (..\User\Motor.c)(0x657D4516)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-ID:\software\MDK5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\software\MDK5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\motor.o --omf_browse techrace\motor.crf --depend techrace\motor.d)
+I (..\User\Motor.h)(0x657D4525)
 I (../Core/Inc/tim.h)(0x657D3F4A)
 I (../Core/Inc/main.h)(0x657D354B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6579F969)
@@ -1519,7 +1519,7 @@ I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x657C7F7A)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x657D354C)
 I (../Core/Inc/../../User/codetab.h)(0x657C7F7C)
 I (D:\software\MDK5\ARM\ARMCC\include\string.h)(0x57F606B8)
-I (..\User\Motor.h)(0x657D43E1)
+I (..\User\Motor.h)(0x657D4525)
 I (../Core/Inc/tim.h)(0x657D3F4A)
 I (..\User\pid.h)(0x657D39CC)
 I (../Core/Inc/usart.h)(0x6579F969)
