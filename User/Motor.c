@@ -90,7 +90,6 @@ void Init(void)
     Motor3_Init();
     Motor4_Init();
     set_PID(0, 0, 0, 0, 0);
-    PID_Init(&DISTANCE, 4, 0, 0, 0, 200);
     PID_Init(&YAW, 0, 0, 0, 0, 0);
     HAL_Delay(1000); // 等待传感器初始化完成
 }

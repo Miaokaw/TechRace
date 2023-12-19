@@ -40,3 +40,7 @@ extern const unsigned char F6x8[][6];
 extern const unsigned char F8X16[];
 
 extern unsigned char BMP1[];
+
+extern const unsigned char oled_asc2_0806[95][6];
+
+extern const unsigned char oled_asc2_1608[95][16];

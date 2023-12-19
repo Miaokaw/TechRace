@@ -129,7 +129,9 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     HAL_GPIO_TogglePin(BEEP_GPIO_Port, BEEP_Pin);
-    OLED_ShowStr(0, 3, "HelTec Automation", 1); // 2a��?6*8��?��?
+    OLED_Show_Num(0,1,123,16);
+    OLED_Show_Char(0,5,'3',16);
+    OLED_ShowStr(0, 3, "123", 2); // 2a��?6*8��?��?
     HAL_Delay(2000);
   }
   /* USER CODE END 3 */
