@@ -36,6 +36,7 @@ extern "C"
 #include "I2c.h"
 #include "../../User/MPU6050.h"
 #include "../../User/OLED_I2C.h"
+#include "../../User/Motor.h"
   /* USER CODE END Includes */
 
   /* Exported types ------------------------------------------------------------*/
