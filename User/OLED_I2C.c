@@ -69,34 +69,36 @@ void OLED_Init(void)
 {
 	HAL_Delay(100); // �1�7�1�7�1�7�1�7�1�7�1�7�1�7�0�2�1�7�1�7�1�7�1�7�0�8
 
-	WriteCmd(0xAE); // display off
-	WriteCmd(0x20); // Set Memory Addressing Mode
-	WriteCmd(0x10); // 00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Page Addressing Mode (RESET);11,Invalid
-	WriteCmd(0xb0); // Set Page Start Address for Page Addressing Mode,0-7
-	WriteCmd(0xc8); // Set COM Output Scan Direction
-	WriteCmd(0x00); //---set low column address
-	WriteCmd(0x10); //---set high column address
-	WriteCmd(0x40); //--set start line address
-	WriteCmd(0x81); //--set contrast control register
-	WriteCmd(0xff); // �1�7�1�7�1�7�0�0�1�7�1�7�1�7 0x00~0xff
-	WriteCmd(0xa1); //--set segment re-map 0 to 127
-	WriteCmd(0xa6); //--set normal display
-	WriteCmd(0xa8); //--set multiplex ratio(1 to 64)
-	WriteCmd(0x3F); //
-	WriteCmd(0xa4); // 0xa4,Output follows RAM content;0xa5,Output ignores RAM content
-	WriteCmd(0xd3); //-set display offset
-	WriteCmd(0x00); //-not offset
-	WriteCmd(0xd5); //--set display clock divide ratio/oscillator frequency
-	WriteCmd(0xf0); //--set divide ratio
-	WriteCmd(0xd9); //--set pre-charge period
-	WriteCmd(0x22); //
-	WriteCmd(0xda); //--set com pins hardware configuration
-	WriteCmd(0x12);
-	WriteCmd(0xdb); //--set vcomh
-	WriteCmd(0x20); // 0x20,0.77xVcc
-	WriteCmd(0x8d); //--set DC-DC enable
-	WriteCmd(0x14); //
-	WriteCmd(0xaf); //--turn on oled panel
+	WriteCmd(0xAE); /* 关闭显示 */
+	WriteCmd(0xD5); /* 设置时钟分频因子,震荡频率 */
+	WriteCmd(80);	/* [3:0],分频因子;[7:4],震荡频率 */
+	WriteCmd(0xA8); /* 设置驱动路数 */
+	WriteCmd(0X3F); /* 默认0X3F(1/64) */
+	WriteCmd(0xD3); /* 设置显示偏移 */
+	WriteCmd(0X00); /* 默认为0 */
+
+	WriteCmd(0x40); /* 设置显示开始行 [5:0],行数. */
+
+	WriteCmd(0x8D); /* 电荷泵设置 */
+	WriteCmd(0x14); /* bit2，开启/关闭 */
+	WriteCmd(0x20); /* 设置内存地址模式 */
+	WriteCmd(0x02); /* [1:0],00，列地址模式;01，行地址模式;10,页地址模式;默认10; */
+	WriteCmd(0xA1); /* 段重定义设置,bit0:0,0->0;1,0->127; */
+	WriteCmd(0xC8); /* 设置COM扫描方向;bit3:0,普通模式;1,重定义模式 COM[N-1]->COM0;N:驱动路数 */
+	WriteCmd(0xDA); /* 设置COM硬件引脚配置 */
+	WriteCmd(0x12); /* [5:4]配置 */
+
+	WriteCmd(0x81); /* 对比度设置 */
+	WriteCmd(0xEF); /* 1~255;默认0X7F (亮度设置,越大越亮) */
+	WriteCmd(0xD9); /* 设置预充电周期 */
+	WriteCmd(0xf1); /* [3:0],PHASE 1;[7:4],PHASE 2; */
+	WriteCmd(0xDB); /* 设置VCOMH 电压倍率 */
+	WriteCmd(0x30); /* [6:4] 000,0.65*vcc;001,0.77*vcc;011,0.83*vcc; */
+
+	WriteCmd(0xA4); /* 全局显示开启;bit0:1,开启;0,关闭;(白屏/黑屏) */
+	WriteCmd(0xA6); /* 设置显示方式;bit0:1,反相显示;0,正常显示 */
+	WriteCmd(0xAF); /* 开启显示 */
+	OLED_CLS();
 }
 
 void OLED_SetPos(unsigned char x, unsigned char y) // �1�7�1�7�1�7�1�7�1�7�1�7�0�3�1�7�1�7�1�7�1�7�1�7�1�7
@@ -251,5 +253,120 @@ void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned
 		{
 			WriteDat(BMP[j++]);
 		}
+	}
+}
+
+/**
+ * @brief       在指定位置显示一个字符,包括部分字符
+ * @param       x   : 0~127
+ * @param       y   : 0~7
+ * @param       size: 选择字体 6/16
+ * @retval      无
+ */
+void OLED_Show_Char(uint8_t x, uint8_t y, uint8_t chr, uint8_t size)
+{
+	uint8_t *pfont = 0;
+	chr = chr - ' '; /* 得到偏移后的值,因为字库是从空格开始存储的,第一个字符是空格 */
+
+	if (size == 6) /* 调用0806字体 */
+	{
+		pfont = (uint8_t *)oled_asc2_0806[chr];
+	}
+	else if (size == 16) /* 调用1608字体 */
+	{
+		pfont = (uint8_t *)oled_asc2_1608[chr];
+	}
+	else /* 没有的字库 */
+	{
+		return;
+	}
+
+	if (size == 6)
+	{
+		if (x > 122)
+		{
+			x = 0;
+			y++;
+		}
+		OLED_SetPos(x, y);
+		for (int i = 0; i < 6; i++)
+		{
+			WriteDat(pfont[i]);
+		}
+	}
+	else if (size == 16)
+	{
+		if (x > 120)
+		{
+			x = 0;
+			y++;
+		}
+		OLED_SetPos(x, y);
+		for (int i = 0; i < 8; i++)
+		{
+			WriteDat(pfont[i]);
+		}
+		OLED_SetPos(x, y + 1);
+		for (int i = 0; i < 8; i++)
+		{
+			WriteDat(pfont[i+8]);
+		}
+	}
+}
+
+/**
+ * @brief       平方函数, m^n
+ * @param       m: 底数
+ * @param       n: 指数
+ * @retval      无
+ */
+static uint32_t oled_pow(uint8_t m, uint8_t n)
+{
+	uint32_t result = 1;
+
+	while (n--)
+	{
+		result *= m;
+	}
+
+	return result;
+}
+
+/**
+ * @brief       显示数字num
+ * @param       x,y : 起始坐标
+ * @param       num : 数值(0 ~ 2^32)
+ * @param       size: 选择字体 6/16
+ * @retval      无
+ */
+void OLED_Show_Num(uint8_t x, uint8_t y, uint32_t num, uint8_t size)
+{
+	uint8_t t, temp = num;
+	uint8_t enshow = 0;
+	uint8_t len = 1;
+	while (temp / 10 != 0)
+	{
+		len++;
+		temp /= 10;
+	}
+
+	for (t = 0; t < len; t++) /* 按总显示位数循环 */
+	{
+		temp = (num / oled_pow(10, len - t - 1)) % 10; /* 获取对应位的数字 */
+
+		if (enshow == 0 && t < (len - 1)) /* 没有使能显示,且还有位要显示 */
+		{
+			if (temp == 0)
+			{
+				OLED_Show_Char(x + ((size % 8) ? 6 : 8) * t, y, ' ', size); /* 显示空格,站位 */
+				continue;													/* 继续下个一位 */
+			}
+			else
+			{
+				enshow = 1; /* 使能显示 */
+			}
+		}
+
+		OLED_Show_Char(x + ((size % 8) ? 6 : 8) * t, y, temp + '0', size); /* 显示字符 */
 	}
 }
