@@ -1,7 +1,6 @@
 #ifndef __PID_H__
 #define __PID_H__
 
-#include "main.h"
 
 // 限幅定义
 #define LIMIT(x, min, max) (x) = (((x) <= (min)) ? (min) : (((x) >= (max)) ? (max) : (x)))
