@@ -23,8 +23,7 @@
 #define __MAIN_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -37,25 +36,25 @@ extern "C"
 #include "../../User/MPU6050.h"
 #include "../../User/OLED_I2C.h"
 #include "../../User/Motor.h"
-  /* USER CODE END Includes */
+/* USER CODE END Includes */
 
-  /* Exported types ------------------------------------------------------------*/
-  /* USER CODE BEGIN ET */
+/* Exported types ------------------------------------------------------------*/
+/* USER CODE BEGIN ET */
 
-  /* USER CODE END ET */
+/* USER CODE END ET */
 
-  /* Exported constants --------------------------------------------------------*/
-  /* USER CODE BEGIN EC */
+/* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
 
-  /* USER CODE END EC */
+/* USER CODE END EC */
 
-  /* Exported macro ------------------------------------------------------------*/
-  /* USER CODE BEGIN EM */
+/* Exported macro ------------------------------------------------------------*/
+/* USER CODE BEGIN EM */
 
-  /* USER CODE END EM */
+/* USER CODE END EM */
 
-  /* Exported functions prototypes ---------------------------------------------*/
-  void Error_Handler(void);
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -66,8 +65,6 @@ extern "C"
 #define BEEP_GPIO_Port GPIOE
 #define LED_Pin GPIO_PIN_3
 #define LED_GPIO_Port GPIOE
-#define INT_6050_Pin GPIO_PIN_4
-#define INT_6050_GPIO_Port GPIOE
 #define NRF_IRQ_Pin GPIO_PIN_5
 #define NRF_IRQ_GPIO_Port GPIOE
 #define NRF_CE_Pin GPIO_PIN_6
@@ -113,9 +110,9 @@ extern "C"
 #define M1_AIN1_Pin GPIO_PIN_14
 #define M1_AIN1_GPIO_Port GPIOG
 
-  /* USER CODE BEGIN Private defines */
+/* USER CODE BEGIN Private defines */
 
-  /* USER CODE END Private defines */
+/* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }

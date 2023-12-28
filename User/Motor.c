@@ -12,7 +12,10 @@ void DataPrint(void)
     time++;
     if (time % 5 == 0)
     {
-        printf("1");
+        //OLED_Show_Float(80, 1,AD_Buf[0], 16);
+        OLED_Show_Float(0, 1, 0.234, 16);
+        OLED_Show_Float(0, 3, 1.234, 16);
+        OLED_Show_Float(0, 5, 1.02, 16);
         time = 0;
     }
 }

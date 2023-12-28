@@ -309,7 +309,7 @@ void OLED_Show_Char(uint8_t x, uint8_t y, uint8_t chr, uint8_t size)
 		OLED_SetPos(x, y + 1);
 		for (int i = 0; i < 8; i++)
 		{
-			WriteDat(pfont[i+8]);
+			WriteDat(pfont[i + 8]);
 		}
 	}
 }
@@ -368,5 +368,94 @@ void OLED_Show_Num(uint8_t x, uint8_t y, uint32_t num, uint8_t size)
 		}
 
 		OLED_Show_Char(x + ((size % 8) ? 6 : 8) * t, y, temp + '0', size); /* 显示字符 */
+	}
+}
+
+/**
+ * @brief       显示小数num
+ * @param       x,y : 起始坐标
+ * @param       num : 数值(0 ~ 2^32)
+ * @param       size: 选择字体 6/16
+ * @retval      无
+ */
+void OLED_Show_Float(uint8_t x, uint8_t y, float num, uint8_t size)
+{
+	float num_int = num;
+	int temp;
+	uint8_t t;
+	uint8_t enshow = 0;
+	uint8_t len = 1, dot_place = 0;
+	if (floor(num_int) == 0) /* 处理[0,1]的数 */
+	{
+		len++;
+	}
+	else if (num_int < 0) /* 负数加负号并取反 */
+	{
+		OLED_Show_Char(x, y, '-', size); /* 显示字符 */
+		x += ((size % 8) ? 6 : 8);
+	}
+
+	while (floor(num_int) != num_int)
+	{
+		if (floor(num_int) == 0)
+		{
+			len++;
+		}
+		else if (num_int > oled_pow(10, 7)) /* 最大有效位  */
+		{
+			num_int = floor(num_int);
+			break;
+		}
+
+		dot_place++; /* 小数点后位数 */
+		num_int *= 10;
+	}
+	temp = (int)floor(num_int);
+	while (temp / 10 != 0)
+	{
+		len++; /* 总长度 */
+		temp /= 10;
+	}
+
+	for (t = 0; t < len - dot_place; t++) /* 按小数点前位数循环 */
+	{
+		temp = ((int)num_int / oled_pow(10, len - t - 1)) % 10; /* 获取对应位的数字 */
+
+		if (enshow == 0 && t < (len - 1)) /* 没有使能显示,且还有位要显示 */
+		{
+			if (temp == 0)
+			{
+				OLED_Show_Char(x + ((size % 8) ? 6 : 8) * t, y, temp + '0', size); /* 显示空格,站位 */
+				continue;														   /* 继续下个一位 */
+			}
+			else
+			{
+				enshow = 1; /* 使能显示 */
+			}
+		}
+
+		OLED_Show_Char(x + ((size % 8) ? 6 : 8) * t, y, temp + '0', size); /* 显示字符 */
+	}
+
+	OLED_Show_Char(x + ((size % 8) ? 6 : 8) * (len - dot_place), y, '.', size); /* 显示小数点 */
+
+	for (t = len - dot_place; t < len; t++) /* 按小数点后位数循环 */
+	{
+		temp = ((int)num_int / oled_pow(10, len - t - 1)) % 10; /* 获取对应位的数字 */
+
+		if (enshow == 0 && t < (len - 1)) /* 没有使能显示,且还有位要显示 */
+		{
+			if (temp == 0)
+			{
+				OLED_Show_Char(x + ((size % 8) ? 6 : 8) * (t + 1), y, temp + '0', size); /* 显示空格,站位 */
+				continue;																 /* 继续下个一位 */
+			}
+			else
+			{
+				enshow = 1; /* 使能显示 */
+			}
+		}
+
+		OLED_Show_Char(x + ((size % 8) ? 6 : 8) * (t + 1), y, temp + '0', size); /* 显示字符 */
 	}
 }

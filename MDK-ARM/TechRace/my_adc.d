@@ -1,0 +1,59 @@
+techrace\my_adc.o: ..\User\my_adc.c
+techrace\my_adc.o: ..\User\my_adc.h
+techrace\my_adc.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdint.h
+techrace\my_adc.o: ../Core/Inc/adc.h
+techrace\my_adc.o: ../Core/Inc/main.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+techrace\my_adc.o: ../Core/Inc/stm32f1xx_hal_conf.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+techrace\my_adc.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+techrace\my_adc.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h
+techrace\my_adc.o: ../Drivers/CMSIS/Include/core_cm3.h
+techrace\my_adc.o: ../Drivers/CMSIS/Include/cmsis_version.h
+techrace\my_adc.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+techrace\my_adc.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+techrace\my_adc.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+techrace\my_adc.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stddef.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
+techrace\my_adc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+techrace\my_adc.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\stdio.h
+techrace\my_adc.o: ../Core/Inc/I2c.h
+techrace\my_adc.o: ../Core/Inc/main.h
+techrace\my_adc.o: ../Core/Inc/../../User/MPU6050.h
+techrace\my_adc.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\math.h
+techrace\my_adc.o: ../Core/Inc/../../User/../DMP/inv_mpu.h
+techrace\my_adc.o: ../Core/Inc/../../User/../DMP/../User/MPU6050.h
+techrace\my_adc.o: ../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h
+techrace\my_adc.o: ../Core/Inc/../../User/OLED_I2C.h
+techrace\my_adc.o: ../Core/Inc/../../User/codetab.h
+techrace\my_adc.o: ../Core/Inc/../../User/Motor.h
+techrace\my_adc.o: ../Core/Inc/tim.h
+techrace\my_adc.o: ../Core/Inc/../../User/pid.h
+techrace\my_adc.o: ../Core/Inc/../../User/my_uart.h
+techrace\my_adc.o: D:\keil5 stm32\core\ARM\ARMCC\Bin\..\include\string.h
+techrace\my_adc.o: ../Core/Inc/../../User/Motor.h
+techrace\my_adc.o: ../Core/Inc/usart.h
+techrace\my_adc.o: ../Core/Inc/gpio.h
+techrace\my_adc.o: ../Core/Inc/../../User/KS103.h
+techrace\my_adc.o: ../Core/Inc/../../User/my_adc.h

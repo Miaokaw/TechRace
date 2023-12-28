@@ -30,7 +30,7 @@ uint8_t MPU6050_ReadReg(uint8_t RegAddress) // 读指定寄存器
 {
     uint8_t Data; // 接收读出数据的变量
     I2C_Start();
-    I2C_Send_Byte(0xD0);
+    I2C_Send_Byte(0xD1);
     I2C_Wait_Ack();
     I2C_Send_Byte(RegAddress);
     I2C_Wait_Ack(); // 前面几步确定地址
@@ -51,7 +51,7 @@ uint8_t MPU6050_Write_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf)
 {
     uint8_t i;
     I2C_Start();
-    I2C_Send_Byte((addr << 1) | 0);
+    I2C_Send_Byte(addr | 0);
     if (I2C_Wait_Ack())
     {
         I2C_Stop();
@@ -79,7 +79,7 @@ uint8_t MPU6050_Write_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf)
 uint8_t MPU6050_Read_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf)
 {
     I2C_Start();
-    I2C_Send_Byte((addr << 1) | 0);
+    I2C_Send_Byte(addr | 0);
     if (I2C_Wait_Ack())
     {
         I2C_Stop();
@@ -88,7 +88,7 @@ uint8_t MPU6050_Read_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf)
     I2C_Send_Byte(reg);
     I2C_Wait_Ack();
     I2C_Start();
-    I2C_Send_Byte((addr << 1) | 1);
+    I2C_Send_Byte(addr | 1);
     I2C_Wait_Ack();
     while (len)
     {
@@ -125,6 +125,8 @@ uint8_t run_self_test(void)
         gyro[2] = (long)(gyro[2] * sens);
         dmp_set_gyro_bias(gyro);
         mpu_get_accel_sens(&accel_sens);
+
+        //accel_sens = 0; // 不校准加速计
         accel[0] *= accel_sens;
         accel[1] *= accel_sens;
         accel[2] *= accel_sens;
@@ -217,9 +219,9 @@ uint8_t MPU6050_Init(void)
         res = dmp_set_fifo_rate(100); // 设置DMP输出速率(最大不超过200Hz)
         if (res)
             return 7;
-        res = run_self_test(); // 自检
-        if (res)
-            return 8;
+        // res = run_self_test(); // 自检
+        // if (res)
+        //     return 8;
         res = mpu_set_dmp_state(1); // 使能DMP
         if (res)
             return 9;

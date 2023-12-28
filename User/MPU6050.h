@@ -14,6 +14,7 @@ uint8_t MPU6050_Read_Len(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf);
 
 uint8_t MPU6050_Init(void);
 uint8_t MPU6050_DMP_get_data(float *pitch, float *roll, float *yaw);
+uint8_t run_self_test(void);
 
 // 空函数防止报错
 void fake_delay_ms(unsigned long num_ms);

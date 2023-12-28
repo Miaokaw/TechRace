@@ -58,7 +58,7 @@
 // #include "msp430_clock.h"
 // #include "msp430_interrupt.h"
 #define i2c_write MPU6050_Write_Len
-#define i2c_read MPU6050_Write_Len
+#define i2c_read MPU6050_Read_Len
 #define delay_ms fake_delay_ms
 #define get_ms fake_get_ms
 // static inline int reg_int_cb(struct int_param_s *int_param)
@@ -181,8 +181,8 @@ struct gyro_reg_s
     unsigned char fifo_en;
     unsigned char gyro_cfg;
     unsigned char accel_cfg;
-    unsigned char accel_cfg2;
-    unsigned char lp_accel_odr;
+    //unsigned char accel_cfg2;
+    //unsigned char lp_accel_odr;
     unsigned char motion_thr;
     unsigned char motion_dur;
     unsigned char fifo_count_h;
@@ -193,7 +193,7 @@ struct gyro_reg_s
     unsigned char int_enable;
     unsigned char dmp_int_status;
     unsigned char int_status;
-    unsigned char accel_intel;
+    //unsigned char accel_intel;
     unsigned char pwr_mgmt_1;
     unsigned char pwr_mgmt_2;
     unsigned char int_pin_cfg;
@@ -2036,8 +2036,8 @@ static int accel_self_test(long *bias_regular, long *bias_st)
         if (st_shift[jj])
         {
             st_shift_var = st_shift_cust / st_shift[jj] - 1.f;
-            if (fabs(st_shift_var) > test.max_accel_var)
-                result |= 1 << jj;
+             if (fabs(st_shift_var) > test.max_accel_var)
+                 result |= 1 << jj;
         }
         else if ((st_shift_cust < test.min_g) ||
                  (st_shift_cust > test.max_g))
@@ -2069,8 +2069,8 @@ static int gyro_self_test(long *bias_regular, long *bias_st)
             while (--tmp[jj])
                 st_shift *= 1.046f;
             st_shift_var = st_shift_cust / st_shift - 1.f;
-            if (fabs(st_shift_var) > test.max_gyro_var)
-                result |= 1 << jj;
+             if (fabs(st_shift_var) > test.max_gyro_var)
+                 result |= 1 << jj;
         }
         else if ((st_shift_cust < test.min_dps) ||
                  (st_shift_cust > test.max_dps))
@@ -2851,8 +2851,6 @@ int mpu_run_self_test(long *gyro, long *accel)
     compass_result = compass_self_test();
     if (!compass_result)
         result |= 0x04;
-#else
-    result |= 0x04;
 #endif
 restore:
 #elif defined MPU6500

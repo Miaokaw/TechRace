@@ -9,6 +9,7 @@
 #include "gpio.h"
 #include "KS103.h"
 #include "MPU6050.h"
+#include "my_adc.h"
 
 #define RELOADVALUE1 __HAL_TIM_GetAutoreload(&htim1) // 获取自动装载值
 #define RELOADVALUE2 __HAL_TIM_GetAutoreload(&htim2) // arr = 20000
@@ -51,6 +52,7 @@ typedef struct _Motor
 extern Motor motor[4];
 extern Pid YAW;
 extern float actYaw, targetYaw;
+extern int Vx, Vy, Vz;              // 设定直行速度
 
 void Motor_Init(void);
 
