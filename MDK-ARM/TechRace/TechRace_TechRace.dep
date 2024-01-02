@@ -1,6 +1,6 @@
 Dependencies for Project 'TechRace', Target 'TechRace': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (startup_stm32f103xe.s)(0x658445AA)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"--pd "__UVISION_VERSION SETA 538" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xe.lst --xref -o techrace\startup_stm32f103xe.o --depend techrace\startup_stm32f103xe.d)
+F (startup_stm32f103xe.s)(0x659291C8)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"--pd "__UVISION_VERSION SETA 538" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xe.lst --xref -o techrace\startup_stm32f103xe.o --depend techrace\startup_stm32f103xe.d)
 F (..\Core\Src\I2c.c)(0x658BFE92)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\i2c.o --omf_browse techrace\i2c.crf --depend techrace\i2c.d)
 I (../Core/Inc/I2c.h)(0x6581AD4F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
@@ -46,9 +46,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -56,7 +56,7 @@ I (../Core/Inc/gpio.h)(0x6581AD4F)
 I (../Core/Inc/../../User/KS103.h)(0x6581AD4F)
 I (../Core/Inc/../../User/my_adc.h)(0x658C068C)
 I (../Core/Inc/adc.h)(0x6581AD4F)
-F (../Core/Src/main.c)(0x658D61F8)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\main.o --omf_browse techrace\main.crf --depend techrace\main.d)
+F (../Core/Src/main.c)(0x6592C41C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\main.o --omf_browse techrace\main.crf --depend techrace\main.d)
 I (../Core/Inc/main.h)(0x658444EB)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6581AD4F)
@@ -101,9 +101,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -161,9 +161,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -216,9 +216,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -271,9 +271,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -327,9 +327,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -383,9 +383,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -439,8 +439,8 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -494,9 +494,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/gpio.h)(0x6581AD4F)
@@ -549,9 +549,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -604,9 +604,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -660,9 +660,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1486,9 +1486,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1496,8 +1496,8 @@ I (../Core/Inc/gpio.h)(0x6581AD4F)
 I (../Core/Inc/../../User/KS103.h)(0x6581AD4F)
 I (../Core/Inc/../../User/my_adc.h)(0x658C068C)
 I (../Core/Inc/adc.h)(0x6581AD4F)
-F (..\User\Motor.c)(0x658C2520)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\motor.o --omf_browse techrace\motor.crf --depend techrace\motor.d)
-I (..\User\Motor.h)(0x658D61F8)
+F (..\User\Motor.c)(0x6592CD4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\motor.o --omf_browse techrace\motor.crf --depend techrace\motor.d)
+I (..\User\Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
 I (../Core/Inc/main.h)(0x658444EB)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
@@ -1543,8 +1543,8 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
-I (..\User\pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
+I (..\User\pid.h)(0x65928B1D)
 I (..\User\my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1552,8 +1552,8 @@ I (../Core/Inc/gpio.h)(0x6581AD4F)
 I (..\User\KS103.h)(0x6581AD4F)
 I (..\User\my_adc.h)(0x658C068C)
 I (../Core/Inc/adc.h)(0x6581AD4F)
-F (..\User\pid.c)(0x6581AD4F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\pid.o --omf_browse techrace\pid.crf --depend techrace\pid.d)
-I (..\User\pid.h)(0x6581B5F5)
+F (..\User\pid.c)(0x6592CC0B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\pid.o --omf_browse techrace\pid.crf --depend techrace\pid.d)
+I (..\User\pid.h)(0x65928B1D)
 F (..\User\my_uart.c)(0x6581AD4F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\my_uart.o --omf_browse techrace\my_uart.crf --depend techrace\my_uart.d)
 I (..\User\my_uart.h)(0x6581AD4F)
 I (../Core/Inc/main.h)(0x658444EB)
@@ -1600,9 +1600,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (../Core/Inc/usart.h)(0x6581AD4F)
 I (../Core/Inc/gpio.h)(0x6581AD4F)
@@ -1610,7 +1610,7 @@ I (../Core/Inc/../../User/KS103.h)(0x6581AD4F)
 I (../Core/Inc/../../User/my_adc.h)(0x658C068C)
 I (../Core/Inc/adc.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
-F (..\User\OLED_I2C.c)(0x658D5FE2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\oled_i2c.o --omf_browse techrace\oled_i2c.crf --depend techrace\oled_i2c.d)
+F (..\User\OLED_I2C.c)(0x659292B2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\oled_i2c.o --omf_browse techrace\oled_i2c.crf --depend techrace\oled_i2c.d)
 I (..\User\OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/I2c.h)(0x6581AD4F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B13CF3)
@@ -1655,9 +1655,9 @@ I (../Core/Inc/../../User/../DMP/inv_mpu.h)(0x6581AD4F)
 I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1711,9 +1711,9 @@ I (D:\keil5 stm32\core\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (../Core/Inc/../../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1723,7 +1723,7 @@ I (../Core/Inc/../../User/my_adc.h)(0x658C068C)
 I (../Core/Inc/adc.h)(0x6581AD4F)
 I (..\User\../DMP/inv_mpu.h)(0x6581AD4F)
 I (..\User\../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
-F (..\User\my_adc.c)(0x658C068C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\my_adc.o --omf_browse techrace\my_adc.crf --depend techrace\my_adc.d)
+F (..\User\my_adc.c)(0x65928296)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_TechRace-I"D:\keil5 stm32\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"D:\keil5 stm32\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o techrace\my_adc.o --omf_browse techrace\my_adc.crf --depend techrace\my_adc.d)
 I (..\User\my_adc.h)(0x658C068C)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (../Core/Inc/adc.h)(0x6581AD4F)
@@ -1770,9 +1770,9 @@ I (../Core/Inc/../../User/../DMP/../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/../DMP/inv_mpu_dmp_motion_driver.h)(0x6581AD4F)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (D:\keil5 stm32\core\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (../Core/Inc/usart.h)(0x6581AD4F)
@@ -1826,9 +1826,9 @@ I (../Core/Inc/main.h)(0x658444EB)
 I (../Core/Inc/../../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (../Core/Inc/usart.h)(0x6581AD4F)
 I (../Core/Inc/gpio.h)(0x6581AD4F)
@@ -1883,9 +1883,9 @@ I (../Core/Inc/main.h)(0x658444EB)
 I (../Core/Inc/../../User/MPU6050.h)(0x6582DB7C)
 I (../Core/Inc/../../User/OLED_I2C.h)(0x6582CE2B)
 I (../Core/Inc/../../User/codetab.h)(0x6581AD4F)
-I (../Core/Inc/../../User/Motor.h)(0x658D61F8)
+I (../Core/Inc/../../User/Motor.h)(0x6592BD6D)
 I (../Core/Inc/tim.h)(0x6582EF1A)
-I (../Core/Inc/../../User/pid.h)(0x6581B5F5)
+I (../Core/Inc/../../User/pid.h)(0x65928B1D)
 I (../Core/Inc/../../User/my_uart.h)(0x6581AD4F)
 I (../Core/Inc/usart.h)(0x6581AD4F)
 I (../Core/Inc/gpio.h)(0x6581AD4F)

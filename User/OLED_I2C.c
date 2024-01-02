@@ -385,30 +385,36 @@ void OLED_Show_Float(uint8_t x, uint8_t y, float num, uint8_t size)
 	uint8_t t;
 	uint8_t enshow = 0;
 	uint8_t len = 1, dot_place = 0;
-	if (floor(num_int) == 0) /* 处理[0,1]的数 */
+	if (num == 0)
+	{
+		OLED_Show_Char(x, y, '0', size); /* 显示字符 */
+		return ;
+	}
+
+	if (num_int > -1 && num_int < 1) /* 处理[0,1]的数 */
 	{
 		len++;
 	}
-	else if (num_int < 0) /* 负数加负号并取反 */
+	if (num_int < 0) /* 负数加负号并取反 */
 	{
+		num_int = -num_int;
 		OLED_Show_Char(x, y, '-', size); /* 显示字符 */
 		x += ((size % 8) ? 6 : 8);
 	}
 
 	while (floor(num_int) != num_int)
 	{
+		dot_place++; /* 小数点后位数 */
+		num_int *= 10;
 		if (floor(num_int) == 0)
 		{
 			len++;
 		}
-		else if (num_int > oled_pow(10, 7)) /* 最大有效位  */
+		else if (num_int > oled_pow(10, 6)) /* 最大有效位  */
 		{
 			num_int = floor(num_int);
 			break;
 		}
-
-		dot_place++; /* 小数点后位数 */
-		num_int *= 10;
 	}
 	temp = (int)floor(num_int);
 	while (temp / 10 != 0)

@@ -3,19 +3,22 @@
 Pid YAW;                     // 偏航校正pid结构体
 Motor motor[4];              // 电机结构体
 uint8_t time = 0;            // printf
-int Vx, Vy, Vz;              // 设定直行速度
+int Vx = 90, Vy, Vz;         // 设定直行速度
 int turns = 0;               // 转圈次数
 float pitch, roll, yaw;      // 角度
 float actYaw, targetYaw = 0; // 角度目标值
+int t=0;
 void DataPrint(void)
 {
     time++;
     if (time % 5 == 0)
     {
-        //OLED_Show_Float(80, 1,AD_Buf[0], 16);
-        OLED_Show_Float(0, 1, 0.234, 16);
-        OLED_Show_Float(0, 3, 1.234, 16);
-        OLED_Show_Float(0, 5, 1.02, 16);
+        OLED_Show_Float(60, 1, (float)AD_Buf[0], 16);
+        OLED_Show_Float(0, 3, motor[0].speed.value, 16);
+        OLED_Show_Float(0, 1, 0, 16);
+        // OLED_Show_Float(0, 1, pitch, 16);
+        // OLED_Show_Float(0, 3, roll, 16);
+        OLED_Show_Float(0, 5, yaw, 16);
         time = 0;
     }
 }
@@ -28,9 +31,13 @@ void PID_Init_Motor(float kp, float ki, float kd, int maxi, int maxoutput)
 }
 void Motor_Init(void)
 {
+    motor[0].speed.limitedValue = 200;
+    motor[1].speed.limitedValue = 200;
+    motor[2].speed.limitedValue = 200;
+    motor[3].speed.limitedValue = 200;
     Motor_TIM_Init();
-    PID_Init_Motor(0, 0, 0, 0, 0);
-    PID_Init(&YAW, 0, 0, 0, 0, 0);
+    PID_Init_Motor(VELOCITY_PID);
+    PID_Init(YAW_PID);
     HAL_Delay(1000); // 等待传感器初始化完成
 }
 // 电机速度更新
@@ -138,20 +145,43 @@ void Angle_Upgrade(void)
 // 电机速度计算函数
 void MotorSpeedCal(void)
 {
-    int16_t COUNTERNUM[4] = {COUNTERNUM1, COUNTERNUM2, COUNTERNUM3, COUNTERNUM4};
-    int16_t RELOADVALUE[4] = {RELOADVALUE1, RELOADVALUE2, RELOADVALUE3, RELOADVALUE4};
-    int16_t pluse = 0;
-    for (int8_t i = 0; i < 4; i++)
-    {
-        pluse = COUNTERNUM[i] - RELOADVALUE[i] / 2;
-        // 从开始到现在当前10ms的总脉冲数
-        motor[i].totalAngle = pluse + motor[i].loopNum * RELOADVALUE[i] / 2;
-        // 进行速度计算
-        // motor.totalAngle - motor.lastAngle为当前10ms内的增量，即脉冲数
-        motor[i].speed.measuredValue = motor[i].totalAngle / 0.3124f;
-        // 更新转过的圈数
-        motor[i].lastAngle = motor[i].totalAngle;
-    }
+    // int16_t COUNTERNUM[4] = {COUNTERNUM1, COUNTERNUM2, COUNTERNUM3, COUNTERNUM4};
+    // int16_t RELOADVALUE[4] = {RELOADVALUE1, RELOADVALUE2, RELOADVALUE3, RELOADVALUE4};
+    // int16_t pluse = 0;
+    // for (int8_t i = 0; i < 4; i++)
+    // {
+    //     pluse = COUNTERNUM[i] - RELOADVALUE[i] / 2;
+    //     // 从开始到现在当前10ms的总脉冲数
+    //     motor[i].totalAngle = pluse + motor[i].loopNum * RELOADVALUE[i] / 2;
+    //     // 进行速度计算
+    //     // motor.totalAngle - motor.lastAngle为当前10ms内的增量，即脉冲数
+    //     motor[i].speed.measuredValue = motor[i].totalAngle / 0.8213f;
+    //     // 更新转过的圈数
+    //     motor[i].lastAngle = motor[i].totalAngle;
+    // }
+    int16_t pluse1 = COUNTERNUM1 - RELOADVALUE1 / 2;
+    int16_t pluse2 = COUNTERNUM2 - RELOADVALUE2 / 2;
+    int16_t pluse3 = COUNTERNUM3 - RELOADVALUE3 / 2;
+    int16_t pluse4 = COUNTERNUM4 - RELOADVALUE4 / 2;
+
+    // 从开始到现在当前10ms的总脉冲数
+    motor[0].totalAngle = pluse1 + motor[0].loopNum * RELOADVALUE1 / 2;
+    motor[1].totalAngle = pluse2 + motor[1].loopNum * RELOADVALUE2 / 2;
+    motor[2].totalAngle = pluse3 + motor[2].loopNum * RELOADVALUE3 / 2;
+    motor[3].totalAngle = pluse4 + motor[3].loopNum * RELOADVALUE4 / 2;
+
+    // 进行速度计算
+    // motor.totalAngle - motor.lastAngle为当前10ms内的增量，即脉冲数
+    motor[0].speed.measuredValue = -(motor[0].totalAngle - motor[0].lastAngle) / 0.4106f;
+    motor[1].speed.measuredValue = (motor[1].totalAngle - motor[1].lastAngle) / 0.4106f;
+    motor[2].speed.measuredValue = -(motor[2].totalAngle - motor[2].lastAngle) / 0.4106f;
+    motor[3].speed.measuredValue = (motor[3].totalAngle - motor[3].lastAngle) / 0.4106f;
+
+    // 更新转过的圈数
+    motor[0].lastAngle = motor[0].totalAngle;
+    motor[1].lastAngle = motor[1].totalAngle;
+    motor[2].lastAngle = motor[2].totalAngle;
+    motor[3].lastAngle = motor[3].totalAngle;
 }
 // 整体偏航角计算函数
 void AngleCal(void)
@@ -172,10 +202,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == htim6.Instance) // 10ms中断
     {
+        if (t >= 20000)
+        {
+            Vx = -Vx;
+            t = 0;
+        }
+        t++;
+
         // 程序流程
         AngleCal();      // 计算角度
         MotorSpeedCal(); // 获得编码器值，并且计算电机速度
-        Angle_Upgrade();
+        // Angle_Upgrade();
         Velocity_Upgrade();
         DataPrint(); // 数据输出
     }

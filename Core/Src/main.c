@@ -71,7 +71,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  int t=0;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -113,28 +113,22 @@ int main(void)
   /* USER CODE BEGIN 2 */
   I2C_Init();
   OLED_Init();
-  OLED_Show_Num(100,3 ,MPU6050_Init(),16);
+	MPU6050_Init();
+//  OLED_Show_Num(100,3 ,MPU6050_Init(),16);
   OLED_Show_Num(100,5,run_self_test(),16);
   Motor_Init();
   MY_ADC_Init();
-  Vx=60;
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */	 
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if (t>=2000)
-    {
-      Vx=-Vx;
-      t=0;
-    }
-    t++;
-    
+
   }
   /* USER CODE END 3 */
 }

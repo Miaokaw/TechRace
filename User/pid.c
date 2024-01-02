@@ -9,7 +9,7 @@ void PID_Init(Pid *pid, float p, float i, float d, float maxI, float maxOut)
     pid->maxOutput = maxOut; // pwm输出上限
 }
 
-float Data_Filter(Data *data)
+void Data_Filter(Data *data)
 {
     float sum = 0.0f;
     if (data->measuredValue > -data->limitedValue && data->measuredValue < data->limitedValue)
@@ -21,8 +21,15 @@ float Data_Filter(Data *data)
         }
         data->data[0] = data->measuredValue; // 第一位是新的数据
         sum += data->measuredValue;
+    }else{
+        for (int i = 20 - 1; i > 0; i--) // 将现有数据后移一位
+        {
+            sum += data->data[i - 1];
+        }
+        data->data[0] = data->measuredValue; // 第一位是新的数据
+        sum += data->measuredValue;
     }
-    return sum / 20; // 返回均值
+    data->value = sum / 20;
 }
 
 // 此为位置式pid，另外还有增量式pid

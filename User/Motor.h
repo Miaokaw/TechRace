@@ -23,14 +23,14 @@
 
 #define M1M2STBY(state) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, (GPIO_PinState)(state)) // 驱动板1STBY(PB2)
 #define M3M4STBY(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, (GPIO_PinState)(state)) // 驱动板2STBY(PG8)
-#define M1AIN1(state) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, (GPIO_PinState)(state))   // 驱动板1AIN1(PC4)
-#define M1AIN2(state) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, (GPIO_PinState)(state))   // 驱动板1AIN2(PC5)
-#define M2BIN1(state) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, (GPIO_PinState)(state))   // 驱动板1BIN1(PC9)
-#define M2BIN2(state) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, (GPIO_PinState)(state))   // 驱动板1BIN2(PC8)
+#define M1AIN1(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, (GPIO_PinState)(state))   // 驱动板1AIN1(PC4)
+#define M1AIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, (GPIO_PinState)(state))   // 驱动板1AIN2(PC5)
+#define M2BIN1(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_12, (GPIO_PinState)(state))   // 驱动板1BIN1(PC9)
+#define M2BIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_11, (GPIO_PinState)(state))   // 驱动板1BIN2(PC8)
 #define M3AIN1(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_10, (GPIO_PinState)(state))  // 驱动板2AIN1(PG10)
-#define M3AIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_11, (GPIO_PinState)(state))  // 驱动板2AIN2(PG11)
-#define M4BIN1(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, (GPIO_PinState)(state))  // 驱动板2BIN1(PG13)
-#define M4BIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, (GPIO_PinState)(state))  // 驱动板2BIN2(PG14)
+#define M3AIN2(state) HAL_GPIO_WritePin(GPIOG, GPIO_PIN_9, (GPIO_PinState)(state))  // 驱动板2AIN2(PG11)
+#define M4BIN1(state) HAL_GPIO_WritePin(GPIOD, GPIO_PIN_4, (GPIO_PinState)(state))  // 驱动板2BIN1(PG13)
+#define M4BIN2(state) HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, (GPIO_PinState)(state))  // 驱动板2BIN2(PG14)
 
 #define YAW_PID &YAW, 8, 0, 0, 0, 160
 #define VELOCITY_PID 2.7, 1.1, 0, 10000, 10000

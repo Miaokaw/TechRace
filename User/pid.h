@@ -22,7 +22,7 @@ typedef struct _Data
     float data[20];
 } Data;
 
-float Data_Filter(Data *data);
+void Data_Filter(Data *data);
 void PID_Init(Pid *pid, float p, float i, float d, float maxI, float maxOut);
 void PID_SingleCalc(Pid *pid, float reference, float feedback);
 void PID_Clear(Pid *pid);
